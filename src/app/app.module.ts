@@ -14,8 +14,15 @@ import { LangComponent } from "./CommonBundle/lang/lang.component";
 import { OrdersComponent } from './DashboardBundle/orders/orders/orders.component';
 import { OrderCreateComponent } from './DashboardBundle/orders/order-create/order-create.component';
 import { ClientInfoComponent } from './ClientsBundle/client-info/client-info/client-info.component';
-import { DriverNowComponent } from './UserBundle/driver/driver-now/driver-now/driver-now.component';
+import { DriverNowComponent } from './UserBundle/drivers/driver-now/driver-now.component';
 import { AddClientComponent } from './ClientsBundle/add-client/add-client/add-client.component';
+import { FullClientComponent } from './ClientsBundle/full-client/full-client.component';
+import { AllClientComponent } from './ClientsBundle/all-client/all-client.component';
+import { OperatorsComponent } from './UserBundle/operators/operators.component';
+import { DriversComponent } from './UserBundle/drivers/drivers/drivers.component';
+import { StatisticComponent } from './StatisticBundle/statistic/statistic.component';
+import { OrganisationComponent } from './OrganisationsBundle/organisation/organisation.component';
+import { SettingsComponent } from './SettingsBundle/settings/settings.component';
 
 
 
@@ -37,6 +44,13 @@ import { AddClientComponent } from './ClientsBundle/add-client/add-client/add-cl
         ClientInfoComponent,
         DriverNowComponent,
         AddClientComponent,
+        FullClientComponent,
+        AllClientComponent,
+        OperatorsComponent,
+        DriversComponent,
+        StatisticComponent,
+        OrganisationComponent,
+        SettingsComponent,
 
 
 

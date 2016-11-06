@@ -3,6 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from "../UserBundle/user-login/user-login.component";
 import { MainPageComponent } from "../DashboardBundle/main-page.component";
 import { OrderCreateComponent } from "../DashboardBundle/orders/order-create/order-create.component";
+import { FullClientComponent } from "../ClientsBundle/full-client/full-client.component";
+import { AllClientComponent } from "../ClientsBundle/all-client/all-client.component";
+import { OperatorsComponent } from "../UserBundle/operators/operators.component";
+import { DriversComponent } from "../UserBundle/drivers/drivers/drivers.component";
+import { StatisticComponent } from "../StatisticBundle/statistic/statistic.component";
+import { OrganisationComponent } from "../OrganisationsBundle/organisation/organisation.component";
+import { SettingsComponent } from "../SettingsBundle/settings/settings.component";
 
 
 
@@ -10,6 +17,13 @@ const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: 'user/login',  component: UserLoginComponent },
     { path: 'order/create',  component: OrderCreateComponent },
+    { path: 'clients',  component: AllClientComponent },
+    { path: 'operators',  component: OperatorsComponent },
+    { path: 'drivers',  component: DriversComponent },
+    { path: 'statistics',  component: StatisticComponent },
+    { path: 'organisations',  component: OrganisationComponent },
+    { path: 'settings',  component: SettingsComponent },
+    { path: 'client/:id',  component: FullClientComponent },
     // { path: 'user/info', component: UserInfoComponent },
      { path: 'main', component: MainPageComponent },
 

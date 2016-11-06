@@ -1,5 +1,6 @@
 export var EN: any = {
-    'return': ' return',
+    'settings': 'settings',
+    'return': 'return',
     'search client': ' client',
     'driver': 'driver',
     'destination adress': 'destination adress',

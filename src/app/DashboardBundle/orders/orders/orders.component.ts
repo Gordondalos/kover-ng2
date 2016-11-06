@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any;
 
 @Component({
   selector: 'orders',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class OrdersComponent implements OnInit {
 
   constructor() { }
+
+  hideElem(element){
+    $(element).hide();
+  }
 
   ngOnInit() {
   }

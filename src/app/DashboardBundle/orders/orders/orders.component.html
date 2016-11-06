@@ -1,9 +1,9 @@
 <div *ngFor="let item of ['1','2','3','4','5','6','7','8','9','10']; let i = index">
 	<div class="clearfix" *ngIf="i%4==0 && i!=0"></div>
-	<div class="col-xs-3 px-05">
+	<div #elemcard class="col-xs-3 px-05">
 		<div class="card">
 			<div class="card-header posr">
-				<i class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
+				<i (click)="hideElem(elemcard)" class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
 				Какойнибуть адрес доставки, Суворова 93 а
 
 			</div>

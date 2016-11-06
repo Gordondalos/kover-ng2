@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div id="content" class="col-xs-12 px-0 ">
+
+			<div *ngIf="locat_login()">
+				<navigation></navigation>
+				<!--<sidebar></sidebar>-->
+			</div>
+
+
+			<router-outlet class="pt-2"></router-outlet>
+		</div>
+	</div>
+</div>
+

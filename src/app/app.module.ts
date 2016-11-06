@@ -4,17 +4,32 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { UserLoginComponent } from './UserBundle/user-login/user-login.component';
+import { AppRoutingModule } from "./CommonBundle/app-routing.module";
+import { MainPageComponent } from './DashboardBundle/main-page.component';
+import { NavigationComponent } from './CommonBundle/navigation/navigation.component';
+import { LangPipe } from "./CommonBundle/lang.pipe";
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+
+
+@NgModule ( {
+    declarations : [
+        AppComponent,
+        UserLoginComponent,
+        MainPageComponent,
+        NavigationComponent,
+        LangPipe
+
+
+    ],
+    imports : [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule
+    ],
+    providers : [],
+    bootstrap : [ AppComponent ]
+} )
+export class AppModule {
+}

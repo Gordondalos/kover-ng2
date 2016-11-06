@@ -1,0 +1,21 @@
+{
+  "name": "kover-samolet",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Gordondalos <gordondalos@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.5",
+    "mdi": "^1.7.22"
+  }
+}

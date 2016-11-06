@@ -16448,6 +16448,12 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   background-color: #dbffd5;
 }
 
+/* line 49, app/_sass/base/_helper.sass */
+.center-block {
+  display: block;
+  margin: auto;
+}
+
 /* line 1, app/_sass/common/_common.sass */
 html, body {
   height: 100%;

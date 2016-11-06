@@ -23,6 +23,12 @@ import { DriversComponent } from './UserBundle/drivers/drivers/drivers.component
 import { StatisticComponent } from './StatisticBundle/statistic/statistic.component';
 import { OrganisationComponent } from './OrganisationsBundle/organisation/organisation.component';
 import { SettingsComponent } from './SettingsBundle/settings/settings.component';
+import { StatOrganisationComponent } from './StatisticBundle/stat-organisation/stat-organisation.component';
+import { StatDriverComponent } from './StatisticBundle/stat-driver/stat-driver.component';
+import { StatOperatorComponent } from './StatisticBundle/stat-operator/stat-operator.component';
+import { RatingOrganisationComponent } from './StatisticBundle/rating-organisation/rating-organisation.component';
+import { RatingClientComponent } from './StatisticBundle/rating-client/rating-client.component';
+import { StatClientComponent } from './StatisticBundle/stat-client/stat-client.component';
 
 
 
@@ -51,6 +57,12 @@ import { SettingsComponent } from './SettingsBundle/settings/settings.component'
         StatisticComponent,
         OrganisationComponent,
         SettingsComponent,
+        StatOrganisationComponent,
+        StatDriverComponent,
+        StatOperatorComponent,
+        RatingOrganisationComponent,
+        RatingClientComponent,
+        StatClientComponent,
 
 
 

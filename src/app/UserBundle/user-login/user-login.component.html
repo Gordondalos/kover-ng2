@@ -1,3 +1,64 @@
-<p>
-  user-login works!
-</p>
+<section class="login bbg">
+  <div class="container">
+    <div class="row">
+      <div class="pt-2">
+        <lang [color]="'text-white'"></lang>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-xs-center text-white mt-3">
+        <h1 class="mt-3">{{ 'Kover'|lang }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 pr-0">
+        <div class="form-wrapper float-md-right float-sm-none b-r pr-2">
+          <label class="text-white mb-0 mt-1" for="login"><i class="mdi mdi-account"></i>
+            {{ 'login'| lang }}
+            <span *ngIf="name && name.length < 2">( {{'data non correct'| lang }} )</span>
+          </label>
+          <input [(ngModel)]="name" class="form-control" id="login" type="text" placeholder="{{ 'login'| lang }}">
+
+          <label class="text-white mb-0 mt-1" for="password"><i class="mdi mdi-lock"></i>
+            {{'Password'| lang}}
+            <span *ngIf="password && password.length < 6">( {{'data non correct'| lang }} )</span>
+          </label>
+          <input
+              [(ngModel)]="password"
+              class="form-control"
+              id="password"
+              type="password"
+              placeholder="{{'Password'| lang}}"
+              (keyup.enter)="getUser()"
+          >
+
+          <button (click)="getUser()"
+                  [disabled]="!(password && password.length > 5 && name && name.length >1)"
+                  class="btn btn-primary  text-white mt-1 px-1">
+            {{'To come in'|lang}}
+          </button>
+
+          <b class="text-white d-block mt-2 float-xs-right pointer">{{'Request access'|lang}}</b>
+          <span class="text-white d-block mt-2 float-xs-right pr-1">{{'or'|lang}}</span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="col-xs-12 col-md-6 pl-2">
+        <div class="text-wrapper text-white pt-2">
+          <p>
+            {{'info'| lang}}
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div *ngIf="dataincorrect" class="alert alert-danger" role="alert">
+        <span >{{'data non correct'| lang }}</span>
+        <span (click)="dataincorrect = !dataincorrect" class="float-xs-right"><i class="mdi mdi-close pt-5 d-block pointer"></i></span>
+      </div>
+    </div>
+  </div>
+</section>

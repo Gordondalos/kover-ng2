@@ -1,0 +1,10 @@
+<div class="btn-group">
+  <button type="button" [ngClass]="color" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{'lang'|lang }}
+  </button>
+  <div class="dropdown-menu">
+    <a (click)="changeLang('ru')" class="dropdown-item pointer">Русский</a>
+    <a (click)="changeLang('en')" class="dropdown-item pointer">English</a>
+    <!--<a (click)="changeLang('de')" class="dropdown-item pointer">Deutsche</a>-->
+  </div>
+</div>

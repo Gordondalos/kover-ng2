@@ -1,0 +1,34 @@
+/* line 1, user-login.component.sass */
+.login {
+  width: 100%;
+  height: 100%;
+}
+/* line 4, user-login.component.sass */
+.login .form-wrapper {
+  margin-top: 10%;
+  max-width: 400px;
+  min-width: 320px;
+}
+/* line 9, user-login.component.sass */
+.login .text-wrapper {
+  margin-top: 10%;
+  max-width: 400px;
+}
+/* line 12, user-login.component.sass */
+.login .pt-5 {
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  /* line 20, user-login.component.sass */
+  .login .form-wrapper {
+    padding-right: 15px !important;
+    border-right: none !important;
+    max-width: 100%;
+    min-width: 100%;
+  }
+  /* line 25, user-login.component.sass */
+  .login .col-xs-12 {
+    padding-left: 15px !important;
+  }
+}

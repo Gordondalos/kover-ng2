@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { CONFIG } from './config';
+import { Router } from "@angular/router";
+declare var $:any;
 
 
 /**
@@ -30,6 +32,7 @@ export class CommonService {
      * Конфигурационные парамеры - обьект
      */
     public config: any = CONFIG;
+    private router: any;
 
     /**
      * Конструктор сервиса устанавливает из конфига язык взаимодействия с пользователем,
@@ -37,7 +40,12 @@ export class CommonService {
      * @method constructor
      * @memberOf CommonService
      */
-    constructor ( private http : Http ) {
+    constructor ( private http : Http, router: Router ) {
+        this.router = router;
+        // $('body').css({'min-height': window.innerHeight+"px" });
+        // $('.login').css({'height': window.innerHeight+"px" });
+
+
         this.lang = CONFIG.langDefault;
         var lang = this.getCookie('lang');
         if(lang !== undefined){
@@ -145,5 +153,7 @@ export class CommonService {
     logout () {
         this.deleteCookie ( 'token' );
         this.user = undefined;
+        this.router.navigate(['/user/login']);
+
     }
 }

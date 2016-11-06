@@ -10,6 +10,11 @@ import { MainPageComponent } from './DashboardBundle/main-page.component';
 import { NavigationComponent } from './CommonBundle/navigation/navigation.component';
 import { LangPipe } from "./CommonBundle/lang.pipe";
 import { CommonService } from "./CommonBundle/common.service";
+import { LangComponent } from "./CommonBundle/lang/lang.component";
+
+
+
+
 
 
 
@@ -19,7 +24,10 @@ import { CommonService } from "./CommonBundle/common.service";
         UserLoginComponent,
         MainPageComponent,
         NavigationComponent,
-        LangPipe
+        LangPipe,
+        LangComponent,
+
+
     ],
     imports : [
         BrowserModule,

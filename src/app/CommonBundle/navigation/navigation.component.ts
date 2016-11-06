@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from "../common.service";
 
 @Component({
   selector: 'navigation',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  private route: string;
+
+  constructor(private commonService: CommonService) { }
+
+  logaut(){
+    this.commonService.logout();
+  }
 
   ngOnInit() {
+    this.route = window.location.pathname;
   }
 
 }

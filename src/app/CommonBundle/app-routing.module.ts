@@ -6,7 +6,7 @@ import { MainPageComponent } from "../DashboardBundle/main-page.component";
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/user/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: 'user/login',  component: UserLoginComponent },
     // { path: 'user/info', component: UserInfoComponent },
      { path: 'main', component: MainPageComponent },

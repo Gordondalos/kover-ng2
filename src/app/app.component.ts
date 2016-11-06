@@ -13,9 +13,12 @@ export class AppComponent {
 
     constructor(private router : Router,){  }
 
+    /**
+     * Данный метод определяет на какой я странице в данный момент, если на логинке то false, в противном случае true
+     * @return {boolean}
+     */
     locat_login(){
         var locat = window.location.pathname;
-        console.log(locat);
         if(locat == '/user/login'){
             return false;
         }else{

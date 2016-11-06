@@ -9,6 +9,7 @@ import { AppRoutingModule } from "./CommonBundle/app-routing.module";
 import { MainPageComponent } from './DashboardBundle/main-page.component';
 import { NavigationComponent } from './CommonBundle/navigation/navigation.component';
 import { LangPipe } from "./CommonBundle/lang.pipe";
+import { CommonService } from "./CommonBundle/common.service";
 
 
 
@@ -19,16 +20,15 @@ import { LangPipe } from "./CommonBundle/lang.pipe";
         MainPageComponent,
         NavigationComponent,
         LangPipe
-
-
     ],
     imports : [
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule
+        AppRoutingModule,
+
     ],
-    providers : [],
+    providers : [CommonService],
     bootstrap : [ AppComponent ]
 } )
 export class AppModule {

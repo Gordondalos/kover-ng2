@@ -1,8 +1,8 @@
 export var EN: any = {
+    'Kover': 'Ковер-Самолет',
     'Tags': 'Tags',
     'Welcome': 'Welcome',
     'Home': 'Home',
-    'iPricer': 'iPricer',
     'Personal area': 'Personal area',
     'Exit': 'Exit',
     'search': 'Search',
@@ -14,6 +14,5 @@ export var EN: any = {
     'or': 'or',
     'Request access': 'Request access',
     'Password': 'Password',
-    'ipInfo' : 'iPricer this tech for the automated processing of SaaS-application, standardization and analysis of product offerings, providing the connection of the supplier and the purchaser',
 
 };

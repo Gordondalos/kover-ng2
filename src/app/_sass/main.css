@@ -16433,6 +16433,21 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   text-transform: uppercase;
 }
 
+/* line 40, base/_helper.sass */
+.bg-whitesmoke {
+  background-color: whitesmoke;
+}
+
+/* line 43, base/_helper.sass */
+.bg-wheat {
+  background-color: wheat;
+}
+
+/* line 46, base/_helper.sass */
+.bg-light-green {
+  background-color: #dbffd5;
+}
+
 /* line 1, common/_common.sass */
 html, body {
   height: 100%;

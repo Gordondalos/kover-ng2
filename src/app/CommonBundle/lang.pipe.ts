@@ -13,13 +13,13 @@ import { CommonService } from './common.service';
  * Ключи смотрите в папке app/_src/js/Common/translate
  * @class LangPipe
  */
-@Pipe({ name: 'lang' })
+@Pipe ( { name : 'lang' } )
 export class LangPipe implements PipeTransform {
     /**
      *  значение языка
      * @memberOf LangPipe
      */
-    private lang: string;
+    private lang : string;
 
     /**
      * Конструктор принимает в виде параметра CommonService для того чтобы использовать его метод  getLang() и получить язык установленный для пользователя
@@ -28,8 +28,8 @@ export class LangPipe implements PipeTransform {
      * Описание сервиса можно глянуть тут {@link CommonService|CommonService}
      * @memberOf LangPipe
      */
-    constructor(private commonService: CommonService ){
-        this.lang = commonService.getLang();
+    constructor ( private commonService : CommonService ) {
+        this.lang = commonService.getLang ();
     }
 
     /**
@@ -41,12 +41,15 @@ export class LangPipe implements PipeTransform {
      * @memberOf LangPipe
      */
 
-    transform(word: string, lang: string): string {
-        switch (this.lang) {
-            case 'ru': return RU[word];
-            case 'en': return EN[word];
-           // case 'de': return DE[word];
-            default: return RU[word];
+    transform ( word : string, lang : string ) : string {
+        switch ( this.lang ) {
+            case 'ru':
+                return (RU[ word ])? RU[ word ]: word;
+            case 'en':
+                return (EN[ word ])? EN[ word ]: word;;
+            // case 'de': return DE[word];
+            default:
+                return RU[ word ];
         }
     }
 }

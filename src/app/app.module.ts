@@ -12,6 +12,11 @@ import { LangPipe } from "./CommonBundle/lang.pipe";
 import { CommonService } from "./CommonBundle/common.service";
 import { LangComponent } from "./CommonBundle/lang/lang.component";
 import { OrdersComponent } from './DashboardBundle/orders/orders/orders.component';
+import { OrderCreateComponent } from './DashboardBundle/orders/order-create/order-create.component';
+import { ClientInfoComponent } from './ClientsBundle/client-info/client-info/client-info.component';
+import { DriverNowComponent } from './UserBundle/driver/driver-now/driver-now/driver-now.component';
+import { AddClientComponent } from './ClientsBundle/add-client/add-client/add-client.component';
+
 
 
 
@@ -28,6 +33,11 @@ import { OrdersComponent } from './DashboardBundle/orders/orders/orders.componen
         LangPipe,
         LangComponent,
         OrdersComponent,
+        OrderCreateComponent,
+        ClientInfoComponent,
+        DriverNowComponent,
+        AddClientComponent,
+
 
 
     ],

@@ -1,0 +1,71 @@
+<div class="container-fluid pt-1">
+	<h4 class="firstUp d-inline-block">{{ 'order create'| lang }}</h4>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-3">
+			<div class="pt-1 px-1 pb-1 bg-wheat">
+				<client-info></client-info>
+			</div>
+			<div class="clearfix mb-1"></div>
+			<add-client></add-client>
+		</div>
+
+		<div class="col-xs-12 col-md-5 px-0">
+
+			<div class="row">
+				<div class="col-xs-12 col-md-3 pr-0 pt-05">
+					{{ 'search client'| lang }}:
+				</div>
+				<div class="col-xs-12 col-md-9 pl-0">
+					<select name="phone" class="form-control">
+						<option value="05555555">05555555</option>
+						<option value="05456465">45645655</option>
+						<option value="05555555">04564655</option>
+						<option value="05555555">065498755</option>
+					</select>
+				</div>
+			</div>
+			<div class="clearfix mb-1"></div>
+			<div class="bg-light-green pa-2">
+				<div class="clearfix mb-1"></div>
+				<select name="from" class="form-control">
+					<option value="05555555">Фаиза</option>
+					<option value="05456465">Мазай</option>
+					<option value="05555555">Белый аист</option>
+					<option value="05555555">Синяя чайка</option>
+				</select>
+				<div class="clearfix mb-1"></div>
+				<textarea class="form-control" name="description" placeholder="{{ 'description'|lang }}"></textarea>
+				<div class="clearfix mb-1"></div>
+				<div>{{ 'fio'|lang }}: <b>Кузнецов Вадим</b></div>
+				<div class="clearfix mb-1"></div>
+				<div>
+					<b>
+						{{ 'call phone'|lang }}: <span>0555 55 55 55</span>
+					</b>
+				</div>
+				<div class="clearfix mb-1"></div>
+				<div>{{ 'client phones'|lang }}: <span>0777 77 77 77</span></div>
+				<div class="clearfix mb-1"></div>
+				<div>{{ 'destination adress'|lang }}: <span>Бишкек Коомунарова 112</span></div>
+				<div class="clearfix mb-1"></div>
+				<div>{{ 'driver' | lang }}: Михаил </div>
+				<div class="clearfix mb-1"></div>
+				<button class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
+				<div class="clearfix"></div>
+			</div>
+
+
+
+		</div>
+
+		<div class="col-xs-12 col-md-3">
+			<div class="bg-faded pa-1">
+				<driver-now></driver-now>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+

@@ -1,4 +1,5 @@
 export var EN: any = {
+    'create': 'Create',
     'organisations': 'organisations',
     'statistics': 'statistics',
     'operators': 'operators',

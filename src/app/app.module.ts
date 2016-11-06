@@ -11,6 +11,7 @@ import { NavigationComponent } from './CommonBundle/navigation/navigation.compon
 import { LangPipe } from "./CommonBundle/lang.pipe";
 import { CommonService } from "./CommonBundle/common.service";
 import { LangComponent } from "./CommonBundle/lang/lang.component";
+import { OrdersComponent } from './DashboardBundle/orders/orders/orders.component';
 
 
 
@@ -26,6 +27,7 @@ import { LangComponent } from "./CommonBundle/lang/lang.component";
         NavigationComponent,
         LangPipe,
         LangComponent,
+        OrdersComponent,
 
 
     ],

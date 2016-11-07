@@ -5,6 +5,9 @@
       <a class="nav-link firstUp" routerLink="/">{{ 'orders'|lang }} <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
+      <a class="nav-link firstUp" routerLink="organisations">{{ 'organisations'|lang }}</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link firstUp" routerLink="clients">{{ 'clients'|lang }}</a>
     </li>
     <li class="nav-item">
@@ -13,23 +16,21 @@
     <li class="nav-item">
       <a class="nav-link firstUp" routerLink="drivers">{{ 'drivers'|lang }}</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link firstUp" routerLink="statistics">{{ 'statistics'|lang }}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link firstUp" routerLink="organisations">{{ 'organisations'|lang }}</a>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle firstUp pointer"  id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ 'statistics'|lang }}</a>
+      <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+        <a class="dropdown-item" routerLink="statistics">{{ 'our statistics'|lang }}</a>
+        <a class="dropdown-item" routerLink="statistics/organisation">{{ 'all statistic'|lang }}</a>
+        <a class="dropdown-item" routerLink="statistics/driver">{{ 'statistic driver'|lang }}</a>
+        <a class="dropdown-item" routerLink="statistics/operator">{{ 'statistic operator'|lang }}</a>
+        <a class="dropdown-item" routerLink="statistics/rating/organization">{{ 'rating organisation'|lang }}</a>
+        <a class="dropdown-item"routerLink="statistics/rating/client">{{ 'rating client'|lang }}</a>
+      </div>
     </li>
     <li class="nav-item">
       <a class="nav-link firstUp" routerLink="settings">{{ 'settings'|lang }}</a>
     </li>
-    <!--<li class="nav-item dropdown">-->
-      <!--<a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-      <!--<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">-->
-        <!--<a class="dropdown-item" href="#">Action</a>-->
-        <!--<a class="dropdown-item" href="#">Another action</a>-->
-        <!--<a class="dropdown-item" href="#">Something else here</a>-->
-      <!--</div>-->
-    <!--</li>-->
   </ul>
   <form class="form-inline float-xs-right">
     <button (click)="logaut()" class="btn btn-inline">Выход</button>

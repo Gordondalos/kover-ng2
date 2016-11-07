@@ -1,16 +1,64 @@
-<div class="container-fluid mt-1">
+<div class="container-fluid pt-1">
 
-	<h4 class="firstUp">{{ 'statistics'|lang }}</h4>
-
-
-	<button type="button" class="btn btn-danger">{{ 'all statistic'|lang }}</button>
-	<button type="button" class="btn btn-warning">{{ 'statistic driver'|lang }}</button>
-	<button type="button" class="btn btn-info">{{ 'statistic operator'|lang }}</button>
-	<button type="button" class="btn btn-primary">{{ 'rating organisation'|lang }}</button>
-	<button type="button" class="btn btn-success">{{ 'rating client'|lang }}</button>
-	<button type="button" class="btn btn-secondary">{{ 'statistic client'|lang }}</button>
-
+	<div class="col-xs-12 col-md-6">
+		<h4>{{ 'our statistics'|lang }}</h4>
+	</div>
+	<div class="col-xs-12 col-md-6"></div>
 
 	<div class="clearfix mb-1"></div>
-
+	<div class="col-xs-12 col-md-4">
+		<div class="form-group row">
+			<label
+				for="example-datetime-local-input"
+				class="col-xs-2 text-xs-center col-form-label">
+				{{ 'from'|lang }}
+			</label>
+			<div class="col-xs-10">
+				<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+				       id="example-datetime-local-input">
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div class="form-group row">
+			<label
+				for="example-datetime-local-input1"
+				class="col-xs-2 text-xs-center col-form-label">
+				{{ 'to'|lang}}
+			</label>
+			<div class="col-xs-10">
+				<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+				       id="example-datetime-local-input1">
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<button class="btn btn-success">{{ 'show'|lang }}</button>
+	</div>
+	<table class="table">
+		<thead class="bg-light-green">
+		<tr>
+			<th>№</th>
+			<th>{{ 'date'|lang }}</th>
+			<th>{{ 'order adress'| lang }}</th>
+			<th>{{ 'description'|lang }}</th>
+			<th>{{ 'order from adress'|lang }}</th>
+			<th>{{ 'operator'|lang }}</th>
+			<th>{{ 'driver'|lang }}</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>Mark</td>
+			<td>Otto</td>
+			<td>@mdo</td>
+			<td>@mdo</td>
+			<td>@mdo</td>
+			<td>@mdo</td>
+		</tr>
+		<tr>
+		</tbody>
+	</table>
 </div>
+

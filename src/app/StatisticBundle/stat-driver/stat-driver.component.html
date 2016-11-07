@@ -1,3 +1,71 @@
-<p>
-  stat-driver works!
-</p>
+<div class="container-fluid pt-1">
+
+  <div class="col-xs-12 col-md-6">
+    <h4>{{ 'statistic driver'|lang }}</h4>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <select name="organisation"  class="form-control">
+      <option value="1">Водитель</option>
+      <option value="1">Водитель</option>
+      <option value="1">Водитель</option>
+      <option value="1">Водитель</option>
+    </select>
+  </div>
+
+  <div class="clearfix mb-1"></div>
+  <div class="col-xs-12 col-md-4">
+    <div class="form-group row">
+      <label
+          for="example-datetime-local-input"
+          class="col-xs-2 text-xs-center col-form-label">
+        {{ 'from'|lang }}
+      </label>
+      <div class="col-xs-10">
+        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+               id="example-datetime-local-input">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4">
+    <div class="form-group row">
+      <label
+          for="example-datetime-local-input1"
+          class="col-xs-2 text-xs-center col-form-label">
+        {{ 'to'|lang}}
+      </label>
+      <div class="col-xs-10">
+        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00"
+               id="example-datetime-local-input1">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4">
+    <button class="btn btn-success">{{ 'show'|lang }}</button>
+  </div>
+  <table class="table">
+    <thead class="bg-light-green">
+    <tr>
+      <th>№</th>
+      <th class="firstUp">{{ 'date'|lang }}</th>
+      <th  class="firstUp">{{ 'order adress'| lang }}</th>
+      <th  class="firstUp">{{ 'description'|lang }}</th>
+      <th  class="firstUp">{{ 'order from adress'|lang }}</th>
+      <th  class="firstUp">{{ 'operator'|lang }}</th>
+      <th  class="firstUp">{{ 'driver'|lang }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+    </tbody>
+  </table>
+</div>
+

@@ -29,6 +29,9 @@ import { StatOperatorComponent } from './StatisticBundle/stat-operator/stat-oper
 import { RatingOrganisationComponent } from './StatisticBundle/rating-organisation/rating-organisation.component';
 import { RatingClientComponent } from './StatisticBundle/rating-client/rating-client.component';
 import { StatClientComponent } from './StatisticBundle/stat-client/stat-client.component';
+import { DriverJobNowComponent } from './SettingsBundle/driver-job-now/driver-job-now.component';
+import { OperatorSummComponent } from './SettingsBundle/operator-summ/operator-summ.component';
+import { OrderSummComponent } from './SettingsBundle/order-summ/order-summ.component';
 
 
 
@@ -63,6 +66,9 @@ import { StatClientComponent } from './StatisticBundle/stat-client/stat-client.c
         RatingOrganisationComponent,
         RatingClientComponent,
         StatClientComponent,
+        DriverJobNowComponent,
+        OperatorSummComponent,
+        OrderSummComponent,
 
 
 

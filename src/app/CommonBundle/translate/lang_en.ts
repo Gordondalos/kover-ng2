@@ -1,4 +1,6 @@
 export var EN: any = {
+    'avto number': 'avto number',
+    'add user': 'add user',
     'order sum': 'order sum',
     'set': 'set',
     'sum': 'sum',

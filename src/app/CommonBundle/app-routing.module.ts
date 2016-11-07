@@ -15,12 +15,16 @@ import { StatOperatorComponent } from "../StatisticBundle/stat-operator/stat-ope
 import { RatingOrganisationComponent } from "../StatisticBundle/rating-organisation/rating-organisation.component";
 import { RatingClientComponent } from "../StatisticBundle/rating-client/rating-client.component";
 import { StatOrganisationComponent } from "../StatisticBundle/stat-organisation/stat-organisation.component";
+import { AddOrganizationComponent } from "../OrganisationsBundle/add-organization/add-organization.component";
+import { AddClientComponent } from "../ClientsBundle/add-client/add-client.component";
+import { UserCreateComponent } from "../UserBundle/user-create/user-create.component";
 
 
 
 const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: 'user/login',  component: UserLoginComponent },
+    { path: 'user/create',  component: UserCreateComponent },
     { path: 'order/create',  component: OrderCreateComponent },
     { path: 'clients',  component: AllClientComponent },
     { path: 'operators',  component: OperatorsComponent },
@@ -31,10 +35,11 @@ const routes: Routes = [
     { path: 'statistics/operator',  component: StatOperatorComponent },
     { path: 'statistics/rating/organization',  component: RatingOrganisationComponent },
     { path: 'statistics/rating/client',  component: RatingClientComponent },
-
     { path: 'organisations',  component: OrganisationComponent },
+    { path: 'organisations/add',  component: AddOrganizationComponent },
     { path: 'settings',  component: SettingsComponent },
-    { path: 'client/:id',  component: FullClientComponent },
+    { path: 'client/full/:id',  component: FullClientComponent },
+    { path: 'client/add',  component: AddClientComponent },
     // { path: 'user/info', component: UserInfoComponent },
      { path: 'main', component: MainPageComponent },
 

@@ -13,9 +13,9 @@ import { CommonService } from "./CommonBundle/common.service";
 import { LangComponent } from "./CommonBundle/lang/lang.component";
 import { OrdersComponent } from './DashboardBundle/orders/orders/orders.component';
 import { OrderCreateComponent } from './DashboardBundle/orders/order-create/order-create.component';
-import { ClientInfoComponent } from './ClientsBundle/client-info/client-info/client-info.component';
+import { ClientInfoComponent } from './ClientsBundle/client-info/client-info.component';
 import { DriverNowComponent } from './UserBundle/drivers/driver-now/driver-now.component';
-import { AddClientComponent } from './ClientsBundle/add-client/add-client/add-client.component';
+import { AddClientComponent } from './ClientsBundle/add-client/add-client.component';
 import { FullClientComponent } from './ClientsBundle/full-client/full-client.component';
 import { AllClientComponent } from './ClientsBundle/all-client/all-client.component';
 import { OperatorsComponent } from './UserBundle/operators/operators.component';
@@ -32,6 +32,8 @@ import { StatClientComponent } from './StatisticBundle/stat-client/stat-client.c
 import { DriverJobNowComponent } from './SettingsBundle/driver-job-now/driver-job-now.component';
 import { OperatorSummComponent } from './SettingsBundle/operator-summ/operator-summ.component';
 import { OrderSummComponent } from './SettingsBundle/order-summ/order-summ.component';
+import { AddOrganizationComponent } from './OrganisationsBundle/add-organization/add-organization.component';
+import { UserCreateComponent } from './UserBundle/user-create/user-create.component';
 
 
 
@@ -69,6 +71,8 @@ import { OrderSummComponent } from './SettingsBundle/order-summ/order-summ.compo
         DriverJobNowComponent,
         OperatorSummComponent,
         OrderSummComponent,
+        AddOrganizationComponent,
+        UserCreateComponent,
 
 
 

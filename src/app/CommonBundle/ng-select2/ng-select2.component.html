@@ -1,0 +1,24 @@
+<section>
+	<input
+		(focus)="searchOpen()"
+		type="text"
+		class="form-control pr-2"
+		[(ngModel)]="search"
+	    placeholder="{{ placeholder }}"	>
+
+	<i *ngIf="search.length" (click)="clearSearch()" class="mdi mdi-close pointer"></i>
+	<i *ngIf="!search.length" (click)="searchOpen()" class="mdi mdi-arrow-down-drop-circle-outline pointer"></i>
+
+
+	<div *ngIf="showOptions" class="values">
+		<ul class="list-unstyled">
+			<li
+				(click)="selectThis(item.value, item.text)"
+				*ngFor="let item of options | ng2Filter: search">
+				{{ item.text }}
+			</li>
+		</ul>
+	</div>
+</section>
+<div class="clearfix"></div>
+

@@ -34,9 +34,9 @@ import { OperatorSummComponent } from './SettingsBundle/operator-summ/operator-s
 import { OrderSummComponent } from './SettingsBundle/order-summ/order-summ.component';
 import { AddOrganizationComponent } from './OrganisationsBundle/add-organization/add-organization.component';
 import { UserCreateComponent } from './UserBundle/user-create/user-create.component';
-
-
-
+import{ MaterialModule } from '@angular/material';
+import { NgSelect2Component } from './CommonBundle/ng-select2/ng-select2.component';
+import { FilPipe } from './CommonBundle/ng-select2/fil.pipe'
 
 
 
@@ -73,6 +73,8 @@ import { UserCreateComponent } from './UserBundle/user-create/user-create.compon
         OrderSummComponent,
         AddOrganizationComponent,
         UserCreateComponent,
+        NgSelect2Component,
+        FilPipe,
 
 
 
@@ -82,9 +84,12 @@ import { UserCreateComponent } from './UserBundle/user-create/user-create.compon
         FormsModule,
         HttpModule,
         AppRoutingModule,
+        MaterialModule.forRoot(),
+
+
 
     ],
-    providers : [CommonService],
+    providers : [ CommonService ],
     bootstrap : [ AppComponent ]
 } )
 export class AppModule {

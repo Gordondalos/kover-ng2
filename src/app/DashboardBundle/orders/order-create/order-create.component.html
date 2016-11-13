@@ -19,12 +19,9 @@
 					{{ 'search client'| lang }}:
 				</div>
 				<div class="col-xs-12 col-md-9 pl-0">
-					<select name="phone" class="form-control">
-						<option value="05555555">05555555</option>
-						<option value="05456465">45645655</option>
-						<option value="05555555">04564655</option>
-						<option value="05555555">065498755</option>
-					</select>
+
+					<ng-select2 (selected)="selectData($event)" [data]="{'options': options, 'placeholder': placeholder}"></ng-select2>
+
 				</div>
 			</div>
 			<div class="clearfix mb-1"></div>

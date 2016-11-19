@@ -3,7 +3,10 @@ import 'rxjs/add/operator/toPromise';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { CONFIG } from './config';
 import { Router } from "@angular/router";
+import { Subject } from "rxjs/Subject";
 declare var $:any;
+
+
 
 
 /**
@@ -15,12 +18,74 @@ declare var $:any;
  */
 @Injectable ()
 export class CommonService {
+
+
+    private setThisUser = new Subject<string>();
+    setThisUsers$ = this.setThisUser.asObservable();
+    setThisUsers(eventData) {
+        this.setThisUser.next(eventData);
+    }
+
+
+
+
     /**
      * текущий авторизованный пользователь
      * @memberOf CommonService
      * @property user {Object}
      */
     public user : any;
+
+    public options : any = [
+        {
+            "value": "582885c12678edb3015d78bb",
+            "text": "+1 (931) 509-2105"
+        },
+        {
+            "value": "582885c10f986244134424c9",
+            "text": "+1 (847) 537-2277"
+        },
+        {
+            "value": "582885c15ccce706dc8b4f67",
+            "text": "+1 (825) 432-2150"
+        },
+        {
+            "value": "582885c1f9ac62e896b0f3d5",
+            "text": "+1 (991) 542-2709"
+        },
+        {
+            "value": "582885c1eedc9f2bd8c4daff",
+            "text": "+1 (991) 422-2598"
+        },
+        {
+            "value": "582885c19850a56c4f74f5c8",
+            "text": "+1 (970) 459-3867"
+        },
+        {
+            "value": "582885c1961ec69e586d785d",
+            "text": "+1 (985) 415-2469"
+        },
+        {
+            "value": "582885c1ea443d1824187b28",
+            "text": "+1 (807) 433-2225"
+        }
+    ];
+
+    getClientById(id: string){
+
+        var client = {
+            'fio': 'Кузнецов Вадим',
+            'phones': ['055577799932', '02154546565'],
+            'adreses': ['Бишкек ул Красивая 5','Улица зеленая 3 кв 5']
+        };
+
+
+        return client;
+    }
+
+    getClientsPhone(){
+        return this.options
+    }
 
     /**
      * язык текущего пользователя

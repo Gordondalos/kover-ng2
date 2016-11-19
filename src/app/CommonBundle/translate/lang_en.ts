@@ -1,4 +1,6 @@
 export var EN: any = {
+    'save':'Сохранить',
+    'cancel':'Отмена',
     'avto number': 'avto number',
     'add user': 'add user',
     'order sum': 'order sum',

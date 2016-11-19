@@ -26,6 +26,10 @@ export class CommonService {
         this.setThisUser.next(eventData);
     }
 
+    saveClient(client: any, clientId: string){
+        console.log(client);
+    }
+
 
 
 
@@ -74,6 +78,7 @@ export class CommonService {
     getClientById(id: string){
 
         var client = {
+            'id': '1',
             'fio': 'Кузнецов Вадим',
             'phones': ['055577799932', '02154546565'],
             'adreses': ['Бишкек ул Красивая 5','Улица зеленая 3 кв 5']

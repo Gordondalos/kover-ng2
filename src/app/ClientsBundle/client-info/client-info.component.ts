@@ -42,4 +42,38 @@ export class ClientInfoComponent implements OnInit {
 
     }
 
+    saveClient(client,newPhone,newAdress){
+        if(newPhone){
+            let phone = true;
+            this.client.phones.forEach(function ( item ) {
+                if(item == newPhone){
+                    phone = false
+                }
+            });
+            if(phone){
+                this.client.phones.push(newPhone);
+            }
+        }
+        if(newAdress){
+            let adres = true;
+            this.client.phones.forEach(function ( item ) {
+                if(item == newPhone){
+                    adres = false
+                }
+            });
+            if(adres){
+                this.client.adreses.push(newAdress);
+            }
+
+        }
+        this.commonService.saveClient(client, client.id);
+    }
+
+    canseladdPhoneAndAdressClient(){
+        this.newAdress = '';
+        this.newPhone = '';
+        this.showPhone = false;
+        this.showAdress = false;
+    }
+
 }

@@ -1,4 +1,7 @@
 export var EN: any = {
+    'search organization':'Search Organization',
+    'order':'Order',
+    'placeholder':'Выберите',
     'save':'Сохранить',
     'cancel':'Отмена',
     'avto number': 'avto number',

@@ -20,6 +20,7 @@ export class CommonService {
     // событие установки нового Водителя в заказе
     private setThisVoditelZakaz = new Subject<string> ();
     setThisVoditelZakazs$ = this.setThisVoditelZakaz.asObservable ();
+
     setThisVoditelZakazs ( eventData ) {
         this.setThisVoditelZakaz.next ( eventData );
     }
@@ -28,6 +29,7 @@ export class CommonService {
     // событие установки нового Клиента при селекте по номеру
     private setThisClient = new Subject<string> ();
     setThisUsers$ = this.setThisClient.asObservable ();
+
     setThisUsers ( eventData ) {
         this.setThisClient.next ( eventData );
     }
@@ -35,14 +37,16 @@ export class CommonService {
     // событие изменения Клиента (Добавился новый телефон или адрес)
     private thisClientChange = new Subject<string> ();
     thisUserChanges$ = this.thisClientChange.asObservable ();
+
     thisUserChanges ( eventData ) {
-        console.log('Клиент изменился');
+        console.log ( 'Клиент изменился' );
         this.thisClientChange.next ( eventData );
     }
 
     // событие выбора адреса доставки
     private setThisAdress = new Subject<string> ();
     setThisAdresss$ = this.setThisAdress.asObservable ();
+
     setThisAdresss ( eventData ) {
         this.setThisAdress.next ( eventData );
     }
@@ -50,32 +54,44 @@ export class CommonService {
     // событие выбора телефона с которого звонили
     private setThisPhone = new Subject<string> ();
     setThisPhones$ = this.setThisPhone.asObservable ();
+
     setThisPhones ( eventData ) {
         this.setThisPhone.next ( eventData );
     }
 
 
-
     saveClient ( client : any, clientId : string ) {
         console.log ( client );
-       this.thisUserChanges(client)
+        this.thisUserChanges ( client )
     }
 
 
-    getVoditelNow(){
+    getVoditelNow () {
         return this.voditelNow;
+    }
+
+    private zavedeniya = [
+        { 'text' : 'Фаиза', 'value' : { 'phone' : '123456', 'adress' : 'Адресс 1' } },
+        { 'text' : 'Мазай', 'value' : { 'phone' : '122346', 'adress' : 'Адресс 2' } },
+        { 'text' : 'Белый Аист', 'value' : { 'phone' : '12346456', 'adress' : 'Адресс 3' } },
+        { 'text' : 'Синяя Чайка', 'value' : { 'phone' : '123456456', 'adress' : 'Адресс 4' } },
+        { 'text' : 'Плаза', 'value' : { 'phone' : '123467856', 'adress' : 'Адресс 4' } },
+    ];
+
+    getOrganization(){
+        return this.zavedeniya;
     }
 
 
     private voditelNow = [
-        {'fio':'Василий','openZakaz': '1','closeZakaz':'6'},
-        {'fio':'Коля','openZakaz': '2','closeZakaz':'5'},
-        {'fio':'Сергей','openZakaz': '3','closeZakaz':'4'},
-        {'fio':'Эдик','openZakaz': '4','closeZakaz':'5'},
-        {'fio':'Миша','openZakaz': '5','closeZakaz':'5'},
-        {'fio':'Анатолий Иванович','openZakaz': '3','closeZakaz':'4'},
-        {'fio':'Лев','openZakaz': '7','closeZakaz':'3'},
-        {'fio':'Гарик Сукачев','openZakaz': '8','closeZakaz':'1'},
+        { 'fio' : 'Василий', 'openZakaz' : '1', 'closeZakaz' : '6' },
+        { 'fio' : 'Коля', 'openZakaz' : '2', 'closeZakaz' : '5' },
+        { 'fio' : 'Сергей', 'openZakaz' : '3', 'closeZakaz' : '4' },
+        { 'fio' : 'Эдик', 'openZakaz' : '4', 'closeZakaz' : '5' },
+        { 'fio' : 'Миша', 'openZakaz' : '5', 'closeZakaz' : '5' },
+        { 'fio' : 'Анатолий Иванович', 'openZakaz' : '3', 'closeZakaz' : '4' },
+        { 'fio' : 'Лев', 'openZakaz' : '7', 'closeZakaz' : '3' },
+        { 'fio' : 'Гарик Сукачев', 'openZakaz' : '8', 'closeZakaz' : '1' },
     ];
 
     /**
@@ -132,7 +148,7 @@ export class CommonService {
         return client;
     }
 
-    addClient ( fio: string, phone:string, adress:string ) {
+    addClient ( fio : string, phone : string, adress : string ) {
 
         var client = {
             'id' : '1',
@@ -141,9 +157,9 @@ export class CommonService {
             'adreses' : [ adress ]
         };
 
-        this.thisUserChanges(client);
+        this.thisUserChanges ( client );
 
-        console.log(fio, phone, adress );
+        console.log ( fio, phone, adress );
     }
 
     getClientsPhone () {

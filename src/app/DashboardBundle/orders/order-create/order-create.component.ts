@@ -16,6 +16,8 @@ export class OrderCreateComponent implements OnInit {
     private adressDostavki: string;
     private ringPhone: string;
     private voditel: any;
+    private zavedeniya: any;
+    private organization: any = '';
 
     constructor ( commonService : CommonService ) {
         this.commonService = commonService;
@@ -60,6 +62,10 @@ export class OrderCreateComponent implements OnInit {
         this.client = eventData;
     }
 
+    selectZavedenie(event){
+        this.organization = event[0];
+    }
+
 
     // событие выбора клиента, возвращает обьект в котором есть айдишник клиента и его телефон
     selectData ( event : any ) {
@@ -70,6 +76,7 @@ export class OrderCreateComponent implements OnInit {
 
 
     ngOnInit () {
+        this.zavedeniya = this.commonService.getOrganization();
         this.options = this.commonService.getClientsPhone ();
     }
 

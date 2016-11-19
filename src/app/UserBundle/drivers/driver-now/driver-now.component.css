@@ -1,0 +1,9 @@
+/* line 2, driver-now.component.sass */
+small.active {
+  background-color: wheat;
+}
+
+/* line 4, driver-now.component.sass */
+i.active {
+  color: red !important;
+}

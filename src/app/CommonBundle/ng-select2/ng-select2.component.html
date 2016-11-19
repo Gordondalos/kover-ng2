@@ -4,7 +4,7 @@
 		type="text"
 		class="form-control pr-2"
 		[(ngModel)]="search"
-	    placeholder="{{ placeholder }}"	>
+	    placeholder="{{ placeholder|lang }}"	>
 
 	<i *ngIf="search.length" (click)="clearSearch()" class="mdi mdi-close pointer"></i>
 	<i *ngIf="!search.length" (click)="searchOpen()" class="mdi mdi-arrow-down-drop-circle-outline pointer"></i>

@@ -6,7 +6,7 @@
 
   <div
       *ngFor="let adress of client.adreses">{{ 'adress'|lang }}:
-       <a class="pointer" (click)="setThisAdress(adress)">{{ adress }}</a>
+       <span class="pointer" (click)="setThisAdress(adress)">{{ adress }}</span>
   </div>
 
 

@@ -18,18 +18,19 @@ declare var $ : any;
 export class CommonService {
 
 
-    // событие установки нового юзера
-    private setThisUser = new Subject<string> ();
-    setThisUsers$ = this.setThisUser.asObservable ();
+    // событие установки нового Клиента при селекте по номеру
+    private setThisClient = new Subject<string> ();
+    setThisUsers$ = this.setThisClient.asObservable ();
     setThisUsers ( eventData ) {
-        this.setThisUser.next ( eventData );
+        this.setThisClient.next ( eventData );
     }
 
-    // событие изменения пользователя
-    private thisUserChange = new Subject<string> ();
-    thisUserChanges$ = this.thisUserChange.asObservable ();
+    // событие изменения Клиента (Добавился новый телефон или адрес)
+    private thisClientChange = new Subject<string> ();
+    thisUserChanges$ = this.thisClientChange.asObservable ();
     thisUserChanges ( eventData ) {
-        this.thisUserChange.next ( eventData );
+        console.log('Клиент изменился');
+        this.thisClientChange.next ( eventData );
     }
 
     // событие выбора адреса доставки
@@ -105,11 +106,20 @@ export class CommonService {
             'adreses' : [ 'Бишкек ул Красивая 5', 'Улица зеленая 3 кв 5' ]
         };
 
-
         return client;
     }
 
     addClient ( fio: string, phone:string, adress:string ) {
+
+        var client = {
+            'id' : '1',
+            'fio' : fio,
+            'phones' : [ phone ],
+            'adreses' : [ adress ]
+        };
+
+        this.thisUserChanges(client);
+
         console.log(fio, phone, adress );
     }
 

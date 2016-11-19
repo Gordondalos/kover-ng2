@@ -18,6 +18,7 @@ export class OrderCreateComponent implements OnInit {
     private voditel: any;
     private zavedeniya: any;
     private organization: any = '';
+    private description : string = '';
 
     constructor ( commonService : CommonService ) {
         this.commonService = commonService;
@@ -64,6 +65,22 @@ export class OrderCreateComponent implements OnInit {
 
     selectZavedenie(event){
         this.organization = event[0];
+    }
+
+    buttonCreateReady(){
+        if(
+            this.client && this.client.fio &&
+            this.adressDostavki && this.adressDostavki.length &&
+            this.ringPhone && this.ringPhone.length &&
+            this.voditel && this.voditel.fio &&
+            this.organization && this.organization.text &&
+            this.description && this.description.length
+        ){
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
 

@@ -35,7 +35,7 @@
 			<div class="bg-light-green pa-2">
 
 				<h2>{{ 'order'|lang }}</h2>
-				<textarea class="form-control" name="description" placeholder="{{ 'description'|lang }}"></textarea>
+				<textarea [(ngModel)]="description" class="form-control" name="description" placeholder="{{ 'description'|lang }}"></textarea>
 				<div class="clearfix mb-1"></div>
 
 				<div>{{ 'fio'|lang }}: <b>{{ client.fio }}</b></div>
@@ -60,16 +60,19 @@
 					{{ adressDostavki }}
 				</div>
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'organization'|lang }}
-					{{ organization.text }}
+				<div>{{ 'organization'|lang }}:
+					<span *ngIf="organization.text && organization.text.length">
+						{{ organization.text }},
+						{{ organization.adress }}
+						{{ organization.phone }}
+					</span>
 				</div>
-
-
-
 				<div class="clearfix mb-1"></div>
 				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.fio) ? voditel.fio : '' }} </div>
 				<div class="clearfix mb-1"></div>
-				<button class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
+
+				<button [disabled]="buttonCreateReady()" class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
+
 				<div class="clearfix"></div>
 			</div>
 		</div>

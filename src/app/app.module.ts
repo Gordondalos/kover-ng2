@@ -36,7 +36,9 @@ import { AddOrganizationComponent } from './OrganisationsBundle/add-organization
 import { UserCreateComponent } from './UserBundle/user-create/user-create.component';
 import{ MaterialModule } from '@angular/material';
 import { NgSelect2Component } from './CommonBundle/ng-select2/ng-select2.component';
-import { FilPipe } from './CommonBundle/ng-select2/fil.pipe'
+import { FilPipe } from './CommonBundle/ng-select2/fil.pipe';
+import { DriverSortPipe } from './UserBundle/drivers/driver-now/driver-sort.pipe';
+
 
 
 
@@ -75,6 +77,8 @@ import { FilPipe } from './CommonBundle/ng-select2/fil.pipe'
         UserCreateComponent,
         NgSelect2Component,
         FilPipe,
+        DriverSortPipe,
+
 
 
 

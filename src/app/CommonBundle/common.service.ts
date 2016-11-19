@@ -55,6 +55,22 @@ export class CommonService {
     }
 
 
+    getVoditelNow(){
+        return this.voditelNow;
+    }
+
+
+    private voditelNow = [
+        {'fio':'Василий','openZakaz': '1','closeZakaz':'6'},
+        {'fio':'Коля','openZakaz': '2','closeZakaz':'5'},
+        {'fio':'Сергей','openZakaz': '3','closeZakaz':'4'},
+        {'fio':'Эдик','openZakaz': '4','closeZakaz':'5'},
+        {'fio':'Миша','openZakaz': '5','closeZakaz':'5'},
+        {'fio':'Анатолий Иванович','openZakaz': '3','closeZakaz':'4'},
+        {'fio':'Лев','openZakaz': '7','closeZakaz':'3'},
+        {'fio':'Гарик Сукачев','openZakaz': '8','closeZakaz':'1'},
+    ];
+
     /**
      * текущий авторизованный пользователь
      * @memberOf CommonService

@@ -57,14 +57,11 @@
 				</div>
 
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'driver' | lang }}: Михаил </div>
+				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.fio) ? voditel.fio : '' }} </div>
 				<div class="clearfix mb-1"></div>
 				<button class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
 				<div class="clearfix"></div>
 			</div>
-
-
-
 		</div>
 
 		<div class="col-xs-12 col-md-3">

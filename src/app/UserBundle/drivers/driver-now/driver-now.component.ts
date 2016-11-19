@@ -13,6 +13,11 @@ export class DriverNowComponent implements OnInit {
     private sortColumn: string ='closeZakaz';
     private upOrDown: boolean = false;
 
+    setThisVoditelInZakaz(voditel){
+        this.commonServices.setThisVoditelZakazs(voditel);
+    }
+
+
     constructor (commonServices: CommonService) {
         this.commonServices = commonServices;
     }

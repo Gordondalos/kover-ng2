@@ -17,6 +17,13 @@ declare var $ : any;
 @Injectable ()
 export class CommonService {
 
+    // событие установки нового Водителя в заказе
+    private setThisVoditelZakaz = new Subject<string> ();
+    setThisVoditelZakazs$ = this.setThisVoditelZakaz.asObservable ();
+    setThisVoditelZakazs ( eventData ) {
+        this.setThisVoditelZakaz.next ( eventData );
+    }
+
 
     // событие установки нового Клиента при селекте по номеру
     private setThisClient = new Subject<string> ();

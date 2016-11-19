@@ -18,7 +18,7 @@
 
 <ul class="list-unstyled">
 	<li *ngFor="let voditel of voditelNow | driverSort: [upOrDown,sortColumn]">
-		<span>
+		<span class="pointer" (click)="setThisVoditelInZakaz(voditel)">
 			{{ voditel.fio }} ({{ voditel.openZakaz }}:{{ voditel.closeZakaz }})
 		</span>
 

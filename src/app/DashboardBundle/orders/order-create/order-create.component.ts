@@ -15,6 +15,7 @@ export class OrderCreateComponent implements OnInit {
     private client : any = [];
     private adressDostavki: string;
     private ringPhone: string;
+    private voditel: any;
 
     constructor ( commonService : CommonService ) {
         this.commonService = commonService;
@@ -33,7 +34,18 @@ export class OrderCreateComponent implements OnInit {
             ( eventData ) => {
                 this.setThisPhone ( eventData );
             } );
+
+        this.commonService.setThisVoditelZakazs$.subscribe (
+            ( eventData ) => {
+                this.setThisVoditel ( eventData );
+            } );
     }
+
+
+    setThisVoditel(eventData){
+        this.voditel = eventData;
+    }
+
 
     setThisPhone(eventData){
         this.ringPhone = eventData;

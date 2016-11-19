@@ -4,9 +4,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { CONFIG } from './config';
 import { Router } from "@angular/router";
 import { Subject } from "rxjs/Subject";
-declare var $:any;
-
-
+declare var $ : any;
 
 
 /**
@@ -20,17 +18,40 @@ declare var $:any;
 export class CommonService {
 
 
-    private setThisUser = new Subject<string>();
-    setThisUsers$ = this.setThisUser.asObservable();
-    setThisUsers(eventData) {
-        this.setThisUser.next(eventData);
+    // событие установки нового юзера
+    private setThisUser = new Subject<string> ();
+    setThisUsers$ = this.setThisUser.asObservable ();
+    setThisUsers ( eventData ) {
+        this.setThisUser.next ( eventData );
     }
 
-    saveClient(client: any, clientId: string){
-        console.log(client);
+    // событие изменения пользователя
+    private thisUserChange = new Subject<string> ();
+    thisUserChanges$ = this.thisUserChange.asObservable ();
+    thisUserChanges ( eventData ) {
+        this.thisUserChange.next ( eventData );
+    }
+
+    // событие выбора адреса доставки
+    private setThisAdress = new Subject<string> ();
+    setThisAdresss$ = this.setThisAdress.asObservable ();
+    setThisAdresss ( eventData ) {
+        this.setThisAdress.next ( eventData );
+    }
+
+    // событие выбора телефона с которого звонили
+    private setThisPhone = new Subject<string> ();
+    setThisPhones$ = this.setThisPhone.asObservable ();
+    setThisPhones ( eventData ) {
+        this.setThisPhone.next ( eventData );
     }
 
 
+
+    saveClient ( client : any, clientId : string ) {
+        console.log ( client );
+       this.thisUserChanges(client)
+    }
 
 
     /**
@@ -42,53 +63,57 @@ export class CommonService {
 
     public options : any = [
         {
-            "value": "582885c12678edb3015d78bb",
-            "text": "+1 (931) 509-2105"
+            "value" : "582885c12678edb3015d78bb",
+            "text" : "+1 (931) 509-2105"
         },
         {
-            "value": "582885c10f986244134424c9",
-            "text": "+1 (847) 537-2277"
+            "value" : "582885c10f986244134424c9",
+            "text" : "+1 (847) 537-2277"
         },
         {
-            "value": "582885c15ccce706dc8b4f67",
-            "text": "+1 (825) 432-2150"
+            "value" : "582885c15ccce706dc8b4f67",
+            "text" : "+1 (825) 432-2150"
         },
         {
-            "value": "582885c1f9ac62e896b0f3d5",
-            "text": "+1 (991) 542-2709"
+            "value" : "582885c1f9ac62e896b0f3d5",
+            "text" : "+1 (991) 542-2709"
         },
         {
-            "value": "582885c1eedc9f2bd8c4daff",
-            "text": "+1 (991) 422-2598"
+            "value" : "582885c1eedc9f2bd8c4daff",
+            "text" : "+1 (991) 422-2598"
         },
         {
-            "value": "582885c19850a56c4f74f5c8",
-            "text": "+1 (970) 459-3867"
+            "value" : "582885c19850a56c4f74f5c8",
+            "text" : "+1 (970) 459-3867"
         },
         {
-            "value": "582885c1961ec69e586d785d",
-            "text": "+1 (985) 415-2469"
+            "value" : "582885c1961ec69e586d785d",
+            "text" : "+1 (985) 415-2469"
         },
         {
-            "value": "582885c1ea443d1824187b28",
-            "text": "+1 (807) 433-2225"
+            "value" : "582885c1ea443d1824187b28",
+            "text" : "+1 (807) 433-2225"
         }
     ];
 
-    getClientById(id: string){
+    getClientById ( id : string ) {
 
         var client = {
-            'id': '1',
-            'fio': 'Кузнецов Вадим',
-            'phones': ['055577799932', '02154546565'],
-            'adreses': ['Бишкек ул Красивая 5','Улица зеленая 3 кв 5']
+            'id' : '1',
+            'fio' : 'Кузнецов Вадим',
+            'phones' : [ '055577799932', '02154546565' ],
+            'adreses' : [ 'Бишкек ул Красивая 5', 'Улица зеленая 3 кв 5' ]
         };
 
 
         return client;
     }
 
-    getClientsPhone(){
+    addClient ( fio: string, phone:string, adress:string ) {
+        console.log(fio, phone, adress );
+    }
+
+    getClientsPhone () {
         return this.options
     }
 
@@ -96,13 +121,13 @@ export class CommonService {
      * язык текущего пользователя
      * @type {string} lang
      */
-    public lang: string; // определен в конфиге
+    public lang : string; // определен в конфиге
 
     /**
      * Конфигурационные парамеры - обьект
      */
-    public config: any = CONFIG;
-    private router: any;
+    public config : any = CONFIG;
+    private router : any;
 
     /**
      * Конструктор сервиса устанавливает из конфига язык взаимодействия с пользователем,
@@ -110,15 +135,15 @@ export class CommonService {
      * @method constructor
      * @memberOf CommonService
      */
-    constructor ( private http : Http, router: Router ) {
+    constructor ( private http : Http, router : Router ) {
         this.router = router;
         // $('body').css({'min-height': window.innerHeight+"px" });
         // $('.login').css({'height': window.innerHeight+"px" });
 
 
         this.lang = CONFIG.langDefault;
-        var lang = this.getCookie('lang');
-        if(lang !== undefined){
+        var lang = this.getCookie ( 'lang' );
+        if ( lang !== undefined ) {
             this.lang = lang;
         }
     }
@@ -129,7 +154,7 @@ export class CommonService {
      * @method getLang
      * @returns {string} возвращает текущий язык
      */
-    getLang():string{
+    getLang () : string {
         return this.lang;
     }
 
@@ -142,8 +167,8 @@ export class CommonService {
      * @example
      * setLang('en');
      */
-    setLang(lang:string): boolean{
-        this.setCookie( 'lang',lang, {} );
+    setLang ( lang : string ) : boolean {
+        this.setCookie ( 'lang', lang, {} );
         return true;
     }
 
@@ -154,7 +179,7 @@ export class CommonService {
      * @memberOf CommonService
      */
     // возвращает конфигурации
-    getConfig (): any {
+    getConfig () : any {
         return CONFIG;
     }
 
@@ -177,7 +202,7 @@ export class CommonService {
      * @memberOf CommonService
      * @method getCookie
      */
-    getCookie ( name: string ) {
+    getCookie ( name : string ) {
         var matches = document.cookie.match ( new RegExp (
             "(?:^|; )" + name.replace ( /([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1' ) + "=([^;]*)"
         ) );
@@ -193,12 +218,12 @@ export class CommonService {
      * @param expires {any} обьект даты до которой будет кука, можно передать false тогда установиться на старндартное время
      */
 
-    setCookie (name: string, value:string, expires: any) {
-        var date = new Date(new Date().getTime() + 60 * 1000);
-        if(expires){
+    setCookie ( name : string, value : string, expires : any ) {
+        var date = new Date ( new Date ().getTime () + 60 * 1000 );
+        if ( expires ) {
             document.cookie = name + "=" + value + "; path=/; expires=" + expires;
-        }else{
-            document.cookie = name + "=" + value +"; path=/; expires="+ date.toUTCString();
+        } else {
+            document.cookie = name + "=" + value + "; path=/; expires=" + date.toUTCString ();
         }
     }
 
@@ -208,7 +233,7 @@ export class CommonService {
      * @memberOf CommonService
      * @method deleteCookie
      */
-    deleteCookie ( name: string ) {
+    deleteCookie ( name : string ) {
         this.setCookie ( name, "", {
             expires : -1
         } )
@@ -223,7 +248,7 @@ export class CommonService {
     logout () {
         this.deleteCookie ( 'token' );
         this.user = undefined;
-        this.router.navigate(['/user/login']);
+        this.router.navigate ( [ '/user/login' ] );
 
     }
 }

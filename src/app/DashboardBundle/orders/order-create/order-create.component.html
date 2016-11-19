@@ -33,17 +33,29 @@
 				<div class="clearfix mb-1"></div>
 				<textarea class="form-control" name="description" placeholder="{{ 'description'|lang }}"></textarea>
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'fio'|lang }}: <b>Кузнецов Вадим</b></div>
+
+				<div>{{ 'fio'|lang }}: <b>{{ client.fio }}</b></div>
 				<div class="clearfix mb-1"></div>
 				<div>
 					<b>
-						{{ 'call phone'|lang }}: <span>0555 55 55 55</span>
+						{{ 'call phone'|lang }}: <span>{{ ringPhone }}</span>
 					</b>
 				</div>
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'client phones'|lang }}: <span>0777 77 77 77</span></div>
+
+				<div>{{ 'client phones'|lang }}:
+					<span *ngFor="let phone of client.phones">
+						<span *ngIf="phone">
+							{{ phone }},
+						</span>
+					</span>
+				</div>
+
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'destination adress'|lang }}: <span>Бишкек Коомунарова 112</span></div>
+				<div>{{ 'destination adress'|lang }}:
+					{{ adressDostavki }}
+				</div>
+
 				<div class="clearfix mb-1"></div>
 				<div>{{ 'driver' | lang }}: Михаил </div>
 				<div class="clearfix mb-1"></div>

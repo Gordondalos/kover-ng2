@@ -1,8 +1,13 @@
 <div *ngIf="client.fio" class="client bg-wheat pt-1 px-1 pb-1 mb-1">
 
   <div>{{ 'fio'|lang }}: <b>{{ client.fio }}</b></div>
-  <div *ngFor="let phone of client.phones">{{ 'phone'|lang }}: <span>{{ phone }}</span></div>
-  <div *ngFor="let adress of client.adreses">{{ 'adress'|lang }}: <span>{{ adress }}</span></div>
+  <div *ngFor="let phone of client.phones">{{ 'phone'|lang }}:
+    <span class="pointer" (click)="setThisPhone(phone)">{{ phone }}</span></div>
+
+  <div
+      *ngFor="let adress of client.adreses">{{ 'adress'|lang }}:
+       <a class="pointer" (click)="setThisAdress(adress)">{{ adress }}</a>
+  </div>
 
 
   <div class="clearfix mb-1"></div>

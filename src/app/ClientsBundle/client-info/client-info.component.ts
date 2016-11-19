@@ -26,6 +26,14 @@ export class ClientInfoComponent implements OnInit {
             } );
     }
 
+    setThisAdress(adress: string){
+        this.commonService.setThisAdresss(adress);
+    }
+
+    setThisPhone(phone: string){
+        this.commonService.setThisPhones(phone);
+    }
+
     setUser(eventData){
         this.client = eventData;
     }
@@ -55,13 +63,13 @@ export class ClientInfoComponent implements OnInit {
             }
         }
         if(newAdress){
-            let adres = true;
-            this.client.phones.forEach(function ( item ) {
+            let adress = true;
+            this.client.adreses.forEach(function ( item ) {
                 if(item == newPhone){
-                    adres = false
+                    adress = false
                 }
             });
-            if(adres){
+            if(adress){
                 this.client.adreses.push(newAdress);
             }
 

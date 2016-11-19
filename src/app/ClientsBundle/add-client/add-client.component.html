@@ -1,12 +1,16 @@
 <div class="container-fluid">
 	<h4 class="">{{ 'add Client'|lang }}</h4>
-	<input type="text" class="form-control" placeholder="{{ 'fio'|lang }}">
+	<input [(ngModel)]="fio" type="text" class="form-control" placeholder="{{ 'fio'|lang }}">
 	<div class="clearfix mb-1"></div>
-	<input type="text" class="form-control" placeholder="{{ 'add phone'|lang }}">
+	<input [(ngModel)]="phone" type="text" class="form-control" placeholder="{{ 'add phone'|lang }}">
 	<div class="clearfix mb-1"></div>
-	<textarea type="text" class="form-control" placeholder="{{ 'add adress'|lang }}"></textarea>
+	<textarea [(ngModel)]="adress" type="text" class="form-control" placeholder="{{ 'add adress'|lang }}"></textarea>
 	<div class="clearfix mb-1"></div>
-	<button class="btn btn-success float-xs-right"><i class="mdi mdi-plus-circle"></i> {{ 'create'|lang }}</button>
+	<button
+		[disabled]="disabledButtonAdd(fio,phone,adress)"
+		(click)="addClient(fio,phone,adress)" class="btn btn-success float-xs-right">
+		<i class="mdi mdi-plus-circle"></i> {{ 'create'|lang }}
+	</button>
 	<div class="clearfix"></div>
 </div>
 

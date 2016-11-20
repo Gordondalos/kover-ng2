@@ -80,7 +80,25 @@ export class OrderCreateComponent implements OnInit {
         }else{
             return true;
         }
+    }
 
+    addNewOrder(){
+        if(
+            this.client && this.client.fio &&
+            this.adressDostavki && this.adressDostavki.length &&
+            this.ringPhone && this.ringPhone.length &&
+            this.voditel && this.voditel.fio &&
+            this.organization && this.organization.text &&
+            this.description && this.description.length
+        ){
+
+
+
+
+
+        }else{
+            return false;
+        }
     }
 
 

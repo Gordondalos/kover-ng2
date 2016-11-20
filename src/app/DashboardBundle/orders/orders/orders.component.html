@@ -1,37 +1,40 @@
-<div *ngFor="let item of ['1','2','3','4','5','6','7','8','9','10']; let i = index">
+
+<div *ngFor="let order of orders; let i = index">
 	<div class="clearfix" *ngIf="i%4==0 && i!=0"></div>
 	<div #elemcard class="col-xs-3 px-05">
 		<div class="card">
+
 			<div class="card-header posr">
 				<i (click)="hideElem(elemcard)" class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
-				Какойнибуть адрес доставки, Суворова 93 а
+				{{ order.adress }}
 
 			</div>
 			<div class="card-block">
-				<p class="card-text">Описание заказа: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, voluptate?</span>
+				<p class="card-text">
+					{{ order.description }}
 				</p>
 
 				<div class="row ">
 					<p class="d-block bg-faded px-1 br">
-						Курьер: <span>Володя новенький</span>
-						<small>0555778545</small>
+						Курьер: <span>{{ order.driver.fio }}</span>
+						<small>{{ order.driver.phone }}</small>
 					</p>
 				</div>
 				<div class="row ">
 					<p class="d-block bg-info text-white px-1 br">
-						Доставка из: <span>Московская 125/ ахунбаева дом 3 кв 15</span>
-						<small>031245645</small>
+						Доставка из: <span>{{ order.organization.title }}</span>
+						<small>{{ order.organization.adress}}</small>
 					</p>
 				</div>
 
 				<div class="row">
 					<div class="col-xs-12 col-md-6 pr-0">
-						<select class="form-control" name="status">
-							<option value="1">Новый</option>
-							<option value="2">Принят</option>
-							<option value="3">Доставляется</option>
-							<option value="4">Завершен</option>
-						</select>
+
+						<ng-select2 (selected)="selectStatus($event)"
+						            [data]="{'options': orderStatus, 'placeholder': 'placeholder', 'select':{'text':order.status.text,'value':order.status.value}}">
+						</ng-select2>
+
+
 					</div>
 					<div class="col-xs-12 col-md-6">
 						<a href="#" class="btn btn-success d-block">Правка</a>

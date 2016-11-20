@@ -2,7 +2,6 @@
 	<h4 class="firstUp d-inline-block">{{ 'order create'| lang }}</h4>
 	<a routerLink="/main" class="btn btn-success float-xs-right">{{ 'return'|lang }}</a>
 	<div class="clearfix mb-1"></div>
-
 	<div class="row">
 		<div class="col-xs-12 col-md-3">
 			<client-info [client]="client"></client-info>
@@ -10,7 +9,6 @@
 		</div>
 
 		<div class="col-xs-12 col-md-6 px-0">
-
 			<div class="row">
 				<div class="col-xs-12 col-md-3 pr-0 pt-05">
 					{{ 'search client'| lang }}:
@@ -28,16 +26,10 @@
 					<ng-select2 (selected)="selectZavedenie($event)" [data]="{'options': zavedeniya, 'placeholder': 'placeholder'}"></ng-select2>
 				</div>
 			</div>
-
-
-
-
 			<div class="bg-light-green pa-2">
-
 				<h2>{{ 'order'|lang }}</h2>
 				<textarea [(ngModel)]="description" class="form-control" name="description" placeholder="{{ 'description'|lang }}"></textarea>
 				<div class="clearfix mb-1"></div>
-
 				<div>{{ 'fio'|lang }}: <b>{{ client.fio }}</b></div>
 				<div class="clearfix mb-1"></div>
 				<div>
@@ -70,9 +62,7 @@
 				<div class="clearfix mb-1"></div>
 				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.fio) ? voditel.fio : '' }} </div>
 				<div class="clearfix mb-1"></div>
-
-				<button [disabled]="buttonCreateReady()" class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
-
+				<button [disabled]="buttonCreateReady()" (click)="addNewOrder()" class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
 				<div class="clearfix"></div>
 			</div>
 		</div>
@@ -81,9 +71,7 @@
 			<div class="bg-faded pa-1">
 				<driver-now></driver-now>
 			</div>
-
 		</div>
-
 	</div>
 </div>
 

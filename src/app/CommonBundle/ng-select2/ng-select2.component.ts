@@ -14,11 +14,14 @@ export class NgSelect2Component implements OnInit {
     private selected = new EventEmitter();
 
     private result : any = [];
+    private select : any = [];
 
     private options: any = [];
     private placeholder: string;
     private showOptions : boolean = false;
     private search : string = '';
+    private value : string = '';
+
 
 
     constructor () {   }
@@ -44,7 +47,11 @@ export class NgSelect2Component implements OnInit {
 
     ngOnInit () {
         this.options = this.data.options;
+        this.select = this.data.select;
         this.placeholder = this.data.placeholder;
+        this.search = this.select.text;
+        this.value = this.select.value;
+
     }
 
 }

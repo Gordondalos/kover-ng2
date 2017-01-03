@@ -46,8 +46,16 @@ export class NgSelect2Component implements OnInit {
     }
 
     ngOnInit () {
+
+
+        if(!this.data.select){
+            this.select = {'text':'','value':''};
+        }else{
+            this.select = this.data.select;
+        }
+
         this.options = this.data.options;
-        this.select = this.data.select;
+
         this.placeholder = this.data.placeholder;
         this.search = this.select.text;
         this.value = this.select.value;

@@ -13,8 +13,14 @@
 				<div class="col-xs-12 col-md-3 pr-0 pt-05">
 					{{ 'search client'| lang }}:
 				</div>
-				<div class="col-xs-12 col-md-9 pl-0">
-					<ng-select2 (selected)="selectData($event)" [data]="{'options': options, 'placeholder': placeholder}"></ng-select2>
+				
+				<div class="col-xs-12 col-md-9 pl-0"
+				*ngIf="options"
+				>
+					
+					<ng-select2 (selected)="selectData($event)"
+					            [data]="{'options': options, 'placeholder': placeholder,'select':{'text':'','value':''}}">
+					</ng-select2>
 				</div>
 			</div>
 
@@ -22,8 +28,13 @@
 				<div class="col-xs-12 col-md-3 pr-0 pt-05">
 					{{ 'search organization'| lang }}:
 				</div>
+
+
 				<div class="col-xs-12 col-md-9 pl-0">
-					<ng-select2 (selected)="selectZavedenie($event)" [data]="{'options': zavedeniya, 'placeholder': 'placeholder'}"></ng-select2>
+					<ng-select2 (selected)="selectZavedenie($event)"
+					 [data] = "{'options': zavedeniya, 'placeholder': 'placeholder', 'select':{'text':'','value':''}}">
+					 >
+					</ng-select2>
 				</div>
 			</div>
 			<div class="bg-light-green pa-2">

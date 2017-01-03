@@ -113,6 +113,7 @@ export class OrderCreateComponent implements OnInit {
     ngOnInit () {
         this.zavedeniya = this.commonService.getOrganization();
         this.options = this.commonService.getClientsPhone ();
+        console.log(this.options);
     }
 
 }

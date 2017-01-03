@@ -38,6 +38,7 @@ import{ MaterialModule } from '@angular/material';
 import { NgSelect2Component } from './CommonBundle/ng-select2/ng-select2.component';
 import { FilPipe } from './CommonBundle/ng-select2/fil.pipe';
 import { DriverSortPipe } from './UserBundle/drivers/driver-now/driver-sort.pipe';
+import { AuthGuard } from "./CommonBundle/service/auth.service";
 
 
 
@@ -93,7 +94,7 @@ import { DriverSortPipe } from './UserBundle/drivers/driver-now/driver-sort.pipe
 
 
     ],
-    providers : [ CommonService ],
+    providers : [ CommonService,AuthGuard ],
     bootstrap : [ AppComponent ]
 } )
 export class AppModule {

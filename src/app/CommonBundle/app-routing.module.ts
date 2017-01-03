@@ -18,30 +18,31 @@ import { StatOrganisationComponent } from "../StatisticBundle/stat-organisation/
 import { AddOrganizationComponent } from "../OrganisationsBundle/add-organization/add-organization.component";
 import { AddClientComponent } from "../ClientsBundle/add-client/add-client.component";
 import { UserCreateComponent } from "../UserBundle/user-create/user-create.component";
+import { AuthGuard } from "./service/auth.service";
 
 
 
 const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
     { path: 'user/login',  component: UserLoginComponent },
-    { path: 'user/create',  component: UserCreateComponent },
-    { path: 'order/create',  component: OrderCreateComponent },
-    { path: 'clients',  component: AllClientComponent },
-    { path: 'operators',  component: OperatorsComponent },
-    { path: 'drivers',  component: DriversComponent },
-    { path: 'statistics',  component: StatisticComponent },
-    { path: 'statistics/driver',  component: StatDriverComponent },
-    { path: 'statistics/organisation',  component: StatOrganisationComponent },
-    { path: 'statistics/operator',  component: StatOperatorComponent },
-    { path: 'statistics/rating/organization',  component: RatingOrganisationComponent },
-    { path: 'statistics/rating/client',  component: RatingClientComponent },
-    { path: 'organisations',  component: OrganisationComponent },
-    { path: 'organisations/add',  component: AddOrganizationComponent },
-    { path: 'settings',  component: SettingsComponent },
-    { path: 'client/full/:id',  component: FullClientComponent },
-    { path: 'client/add',  component: AddClientComponent },
+    { path: 'user/create',  component: UserCreateComponent ,canActivate: [AuthGuard]  },
+    { path: 'order/create',  component: OrderCreateComponent ,canActivate: [AuthGuard]  },
+    { path: 'clients',  component: AllClientComponent ,canActivate: [AuthGuard]  },
+    { path: 'operators',  component: OperatorsComponent ,canActivate: [AuthGuard]  },
+    { path: 'drivers',  component: DriversComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics',  component: StatisticComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics/driver',  component: StatDriverComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics/organisation',  component: StatOrganisationComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics/operator',  component: StatOperatorComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics/rating/organization',  component: RatingOrganisationComponent ,canActivate: [AuthGuard]  },
+    { path: 'statistics/rating/client',  component: RatingClientComponent ,canActivate: [AuthGuard]  },
+    { path: 'organisations',  component: OrganisationComponent ,canActivate: [AuthGuard]  },
+    { path: 'organisations/add',  component: AddOrganizationComponent ,canActivate: [AuthGuard]  },
+    { path: 'settings',  component: SettingsComponent ,canActivate: [AuthGuard]  },
+    { path: 'client/full/:id',  component: FullClientComponent ,canActivate: [AuthGuard]  },
+    { path: 'client/add',  component: AddClientComponent ,canActivate: [AuthGuard]  },
     // { path: 'user/info', component: UserInfoComponent },
-     { path: 'main', component: MainPageComponent },
+     { path: 'main', component: MainPageComponent ,canActivate: [AuthGuard]  },
 
     // { path: 'detail/:id', component: HeroDetailComponent },
     // { path: 'heroes',     component: HeroesComponent }

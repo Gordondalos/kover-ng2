@@ -4,6 +4,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { CONFIG } from './config';
 import { Router } from "@angular/router";
 import { Subject } from "rxjs/Subject";
+import { commonModelService } from "./commonModel.service";
 declare var $ : any;
 
 
@@ -15,7 +16,7 @@ declare var $ : any;
  *
  */
 @Injectable ()
-export class CommonService {
+export class CommonService extends  commonModelService{
 
 
     // событие установки нового Водителя в заказе
@@ -185,7 +186,8 @@ export class CommonService {
      * @method constructor
      * @memberOf CommonService
      */
-    constructor ( private http : Http, router : Router ) {
+    constructor ( http : Http, router : Router ) {
+        super(http);
         this.router = router;
         // $('body').css({'min-height': window.innerHeight+"px" });
         // $('.login').css({'height': window.innerHeight+"px" });
@@ -300,5 +302,9 @@ export class CommonService {
         this.user = undefined;
         this.router.navigate ( [ '/user/login' ] );
 
+    }
+
+    getUser (userLoginAndPassword) {
+        return this.getUserByNameAndPassword(userLoginAndPassword);
     }
 }

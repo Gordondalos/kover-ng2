@@ -12,7 +12,7 @@
  */
 export var CONFIG : any = {
     'langDefault' : 'ru',
-    'ApiURL' : 'http://ipricer.breorey.dev.abpgroup.ru/ws/api.php',
+    'ApiURL' : 'http://koverapi.io/app_dev.php',
     "ApiContentType" : 'application/json; charset=UTF-8',
     "ApiFormat" : 'json',
     'GetUserURI' : '/user/login',

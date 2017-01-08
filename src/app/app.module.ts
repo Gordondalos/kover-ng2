@@ -94,7 +94,7 @@ import { AuthGuard } from "./CommonBundle/service/auth.service";
 
 
     ],
-    providers : [ CommonService,AuthGuard ],
+    providers : [ CommonService, AuthGuard ],
     bootstrap : [ AppComponent ]
 } )
 export class AppModule {

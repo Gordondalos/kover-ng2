@@ -16,5 +16,8 @@ export var CONFIG : any = {
     "ApiContentType" : 'application/json; charset=UTF-8',
     "ApiFormat" : 'json',
     'GetUserURI' : '/user/login',
-    "CookieURI" : '/user'
+    "CookieURI" : '/user',
+    "model": {
+        'CustomersPhones': {'url':'/customer/phone/json'}
+    }
 };

@@ -10,8 +10,18 @@ export class commonModelService {
 
     constructor (private http: Http) { }
 
-    getAll(){
+    getAll(model){
 
+        let headers = new Headers ( {
+            'Content-Type' : this.config.ApiContentType,
+            'format' : this.config.ApiFormat,
+            'URI' : this.config.model[model].url,
+        } );
+        let Url = this.config.ApiURL+this.config.model[model].url;
+        let options = new RequestOptions ( { headers : headers } );
+        let body = [];
+        return this.http.post( Url, body, options)
+            .toPromise ()
     }
 
     getById(){

@@ -8,14 +8,10 @@ import { CommonService } from "../../CommonBundle/common.service";
     styleUrls : [ './user-login.component.sass' ]
 } )
 export class UserLoginComponent implements OnInit {
-
     constructor (private router: Router, private commonService: CommonService) { }
-
     private name: string;
     private password: string;
-
     getUser(){
-
         let userLoginAndPassword = {'name': this.name, 'password': this.password}
         this.commonService.getUser(userLoginAndPassword)
             .then(data => {
@@ -25,7 +21,6 @@ export class UserLoginComponent implements OnInit {
                    this.router.navigate(['/main']);
                }
             });
-
     }
 
     ngOnInit () {

@@ -11,7 +11,7 @@ export class OrderCreateComponent implements OnInit {
 
     placeholder = 'Выберите телефон';
     private commonService : CommonService;
-    private options : any = [];
+    private options : any ;
     private client : any = [];
     private adressDostavki: string;
     private ringPhone: string;
@@ -112,8 +112,13 @@ export class OrderCreateComponent implements OnInit {
 
     ngOnInit () {
         this.zavedeniya = this.commonService.getOrganization();
-        this.options = this.commonService.getClientsPhone ();
-        console.log(this.options);
+        this.commonService.getClientsPhone ().then(
+            data => {
+                this.options = data;
+                console.log(this.options);
+            }
+        );
+
     }
 
 }

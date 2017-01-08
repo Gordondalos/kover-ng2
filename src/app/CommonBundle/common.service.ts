@@ -165,7 +165,30 @@ export class CommonService extends  commonModelService{
     }
 
     getClientsPhone () {
-        return this.options
+
+        let that = this;
+        return new Promise(function(resolve, reject) {
+
+            that.getAll('CustomersPhones')
+                .then( data => {
+                    let opt = JSON.parse(data['_body'])['data'];
+                    let newOpt: any = [];
+                    opt.forEach(function ( item ) {
+                        newOpt.push({'text': item['phone'], 'value': item['customer']});
+                    });
+                    that.options = newOpt;
+                    if(that.options.length){
+                        resolve(that.options);
+                    }
+                });
+
+        });
+
+
+
+
+
+
     }
 
     /**

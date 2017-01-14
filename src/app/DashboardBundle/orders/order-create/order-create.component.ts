@@ -89,9 +89,9 @@ export class OrderCreateComponent implements OnInit {
             this.ringPhone && this.ringPhone.length &&
             this.voditel && this.voditel.fio &&
             this.organization && this.organization.text &&
-            this.description && this.description.length
-        ) {
+            this.description && this.description.length) {
 
+            // неделаем ничего
 
         } else {
             return false;
@@ -102,7 +102,19 @@ export class OrderCreateComponent implements OnInit {
     // событие выбора клиента, возвращает обьект в котором есть айдишник клиента и его телефон
     selectData ( event : any ) {
         this.ringPhone = event[ 0 ].text;
-        this.client = this.commonService.getClientById ( event[ 0 ].value );
+
+        this.commonService.getClientById ( event[ 0 ].value )
+            .then( client => {
+                this.client = client;
+                this.client.fio = client['name']+' '+client['lastname'];
+            });
+
+
+
+
+
+
+
         this.commonService.setThisUsers ( this.client );
     }
 
@@ -112,7 +124,6 @@ export class OrderCreateComponent implements OnInit {
             .then (
                 data => {
                     this.zavedeniya = data;
-                    console.log ( this.zavedeniya );
                 }
             );
 
@@ -121,10 +132,8 @@ export class OrderCreateComponent implements OnInit {
             .then (
                 data => {
                     this.options = data;
-                    console.log ( this.options );
                 }
             );
-
     }
 
 }

@@ -86,7 +86,7 @@ export class CommonService extends  commonModelService{
                     let opt = JSON.parse(data['_body'])['data'];
                     let newOpt: any = [];
                     opt.forEach(function ( item ) {
-                        newOpt.push({'text': item['name'], 'value': item['customer']});
+                        newOpt.push({'text': item['name'], 'value': item['adress']+', '+item['phone'] });
                     });
                     that.organization = newOpt;
                     if(that.organization.length){
@@ -155,14 +155,23 @@ export class CommonService extends  commonModelService{
 
     getClientById ( id : string ) {
 
-        var client = {
-            'id' : '1',
-            'fio' : 'Кузнецов Вадим',
-            'phones' : [ '055577799932', '02154546565' ],
-            'adreses' : [ 'Бишкек ул Красивая 5', 'Улица зеленая 3 кв 5' ]
-        };
+        let that = this;
+        return new Promise(function(resolve) {
+            that.getById('Customer', id)
+                .then( data => {
+                    let opt = JSON.parse(data['_body'])['data'];
+                    resolve(opt);
+                    // let client = {
+                    //     'id' : '1',
+                    //     'fio' : 'Кузнецов Вадим',
+                    //     'phones' : [ '055577799932', '02154546565' ],
+                    //     'adreses' : [ 'Бишкек ул Красивая 5', 'Улица зеленая 3 кв 5' ]
+                    // };
+                });
+        });
 
-        return client;
+
+
     }
 
     addClient ( fio : string, phone : string, adress : string ) {

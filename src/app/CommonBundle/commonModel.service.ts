@@ -24,7 +24,18 @@ export class commonModelService {
             .toPromise ()
     }
 
-    getById(){
+    getById(model,id){
+
+        let headers = new Headers ( {
+            'Content-Type' : this.config.ApiContentType,
+            'format' : this.config.ApiFormat,
+            'URI' : this.config.model[model].url,
+        } );
+        let Url = this.config.ApiURL+this.config.model[model].url+"/"+id;
+        let options = new RequestOptions ( { headers : headers } );
+        let body = [];
+        return this.http.post( Url, body, options)
+            .toPromise ()
 
     }
 

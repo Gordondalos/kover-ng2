@@ -19,6 +19,7 @@ export var CONFIG : any = {
     "CookieURI" : '/user',
     "model": {
         'CustomersPhones': {'url':'/customer/phone/json'},
-        'Organization': {'url':'/organization/json'}
+        'Organization': {'url':'/organization/json'},
+        'Customer': {'url':'/customer/customer/json'}
     }
 };

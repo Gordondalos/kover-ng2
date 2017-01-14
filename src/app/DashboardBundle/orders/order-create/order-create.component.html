@@ -13,7 +13,7 @@
 				<div class="col-xs-12 col-md-3 pr-0 pt-05">
 					{{ 'search client'| lang }}:
 				</div>
-				<div class="col-xs-12 col-md-9 pl-0" *ngIf="options">
+				<div class="col-xs-12 col-md-9 pl-0" *ngIf="options && options.length > 0">
 					<ng-select2 (selected)="selectData($event)"
 					            [data]="{'options': options, 'placeholder': placeholder,'select':{'text':'','value':''}}">
 					</ng-select2>
@@ -26,10 +26,9 @@
 				</div>
 
 
-				<div class="col-xs-12 col-md-9 pl-0">
+				<div class="col-xs-12 col-md-9 pl-0" *ngIf="zavedeniya && zavedeniya.length > 0">
 					<ng-select2 (selected)="selectZavedenie($event)"
 					 [data] = "{'options': zavedeniya, 'placeholder': 'placeholder', 'select':{'text':'','value':''}}">
-					 >
 					</ng-select2>
 				</div>
 			</div>

@@ -11,13 +11,13 @@ export class OrderCreateComponent implements OnInit {
 
     placeholder = 'Выберите телефон';
     private commonService : CommonService;
-    private options : any ;
+    private options : any = [];
     private client : any = [];
-    private adressDostavki: string;
-    private ringPhone: string;
-    private voditel: any;
-    private zavedeniya: any;
-    private organization: any = '';
+    private adressDostavki : string;
+    private ringPhone : string;
+    private voditel : any;
+    private zavedeniya : any;
+    private organization : any = '';
     private description : string = '';
 
     constructor ( commonService : CommonService ) {
@@ -45,12 +45,12 @@ export class OrderCreateComponent implements OnInit {
     }
 
 
-    setThisVoditel(eventData){
+    setThisVoditel ( eventData ) {
         this.voditel = eventData;
     }
 
 
-    setThisPhone(eventData){
+    setThisPhone ( eventData ) {
         this.ringPhone = eventData;
     }
 
@@ -63,40 +63,37 @@ export class OrderCreateComponent implements OnInit {
         this.client = eventData;
     }
 
-    selectZavedenie(event){
-        this.organization = event[0];
+    selectZavedenie ( event ) {
+        this.organization = event[ 0 ];
     }
 
-    buttonCreateReady(){
-        if(
+    buttonCreateReady () {
+        if (
             this.client && this.client.fio &&
             this.adressDostavki && this.adressDostavki.length &&
             this.ringPhone && this.ringPhone.length &&
             this.voditel && this.voditel.fio &&
             this.organization && this.organization.text &&
             this.description && this.description.length
-        ){
+        ) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    addNewOrder(){
-        if(
+    addNewOrder () {
+        if (
             this.client && this.client.fio &&
             this.adressDostavki && this.adressDostavki.length &&
             this.ringPhone && this.ringPhone.length &&
             this.voditel && this.voditel.fio &&
             this.organization && this.organization.text &&
             this.description && this.description.length
-        ){
+        ) {
 
 
-
-
-
-        }else{
+        } else {
             return false;
         }
     }
@@ -104,20 +101,29 @@ export class OrderCreateComponent implements OnInit {
 
     // событие выбора клиента, возвращает обьект в котором есть айдишник клиента и его телефон
     selectData ( event : any ) {
-        this.ringPhone = event[0].text;
+        this.ringPhone = event[ 0 ].text;
         this.client = this.commonService.getClientById ( event[ 0 ].value );
         this.commonService.setThisUsers ( this.client );
     }
 
 
     ngOnInit () {
-        this.zavedeniya = this.commonService.getOrganization();
-        this.commonService.getClientsPhone ().then(
-            data => {
-                this.options = data;
-                console.log(this.options);
-            }
-        );
+        this.commonService.getOrganization ()
+            .then (
+                data => {
+                    this.zavedeniya = data;
+                    console.log ( this.zavedeniya );
+                }
+            );
+
+
+        this.commonService.getClientsPhone ()
+            .then (
+                data => {
+                    this.options = data;
+                    console.log ( this.options );
+                }
+            );
 
     }
 

@@ -72,16 +72,31 @@ export class CommonService extends  commonModelService{
         return this.voditelNow;
     }
 
-    private zavedeniya = [
-        { 'text' : 'Фаиза', 'value' : { 'phone' : '123456', 'adress' : 'Адресс 1' } },
-        { 'text' : 'Мазай', 'value' : { 'phone' : '122346', 'adress' : 'Адресс 2' } },
-        { 'text' : 'Белый Аист', 'value' : { 'phone' : '12346456', 'adress' : 'Адресс 3' } },
-        { 'text' : 'Синяя Чайка', 'value' : { 'phone' : '123456456', 'adress' : 'Адресс 4' } },
-        { 'text' : 'Плаза', 'value' : { 'phone' : '123467856', 'adress' : 'Адресс 4' } },
-    ];
+    private organization :any = [ ];
+
+
 
     getOrganization(){
-        return this.zavedeniya;
+
+        let that = this;
+        return new Promise(function(resolve) {
+
+            that.getAll('Organization')
+                .then( data => {
+                    let opt = JSON.parse(data['_body'])['data'];
+                    let newOpt: any = [];
+                    opt.forEach(function ( item ) {
+                        newOpt.push({'text': item['name'], 'value': item['customer']});
+                    });
+                    that.organization = newOpt;
+                    if(that.organization.length){
+                        resolve(that.organization);
+                    }
+                });
+
+        });
+
+
     }
 
 
@@ -167,7 +182,7 @@ export class CommonService extends  commonModelService{
     getClientsPhone () {
 
         let that = this;
-        return new Promise(function(resolve, reject) {
+        return new Promise(function(resolve) {
 
             that.getAll('CustomersPhones')
                 .then( data => {
@@ -183,11 +198,6 @@ export class CommonService extends  commonModelService{
                 });
 
         });
-
-
-
-
-
 
     }
 

@@ -60,7 +60,7 @@ export class commonModelService {
         } );
         let Url = this.config.ApiURL+this.config.model[model].url;
         let options = new RequestOptions ( { headers : headers } );
-        let body = [data];
+        let body = data;
         return this.http.post( Url, body, options)
             .toPromise ()
     }

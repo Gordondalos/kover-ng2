@@ -89,7 +89,8 @@ export class CommonService extends commonModelService {
                     opt.forEach ( function ( item ) {
                         newOpt.push ( {
                             'text' : item[ 'name' ],
-                            'value' : item[ 'adress' ] + ', ' + item[ 'phone' ]
+                            'value' : item[ 'id' ] + ':::' + item[ 'adress' ] + ', ' + item[ 'phone' ],
+
                         } );
                     } );
                     that.organization = newOpt;
@@ -209,8 +210,8 @@ export class CommonService extends commonModelService {
         } );
     }
 
-    saveJobNow(data){
-       let otvet =  this.addTableRow('DriverNow',data);
+    saveJobNow ( data ) {
+        let otvet = this.addTableRow ( 'DriverNow', data );
     }
 
     getClientsPhone () {
@@ -374,18 +375,31 @@ export class CommonService extends commonModelService {
     }
 
 
-    jobDriverNow:any;
+    jobDriverNow : any;
 
     getJobNow () {
-        return new Promise( resolve => {
-            let param: any = [];
-            param.push(new Date());
-            this.getByParam('VoditelNowByParam',JSON.stringify(param))
-                .then(data => {
-                    let dt = JSON.parse(data['_body']);
-                    this.jobDriverNow = dt['data'];
-                    resolve(dt['data']);
-                });
-        });
+        return new Promise ( resolve => {
+            let param : any = [];
+            param.push ( new Date () );
+            this.getByParam ( 'VoditelNowByParam', JSON.stringify ( param ) )
+                .then ( data => {
+                    let dt = JSON.parse ( data[ '_body' ] );
+                    this.jobDriverNow = dt[ 'data' ];
+                    resolve ( dt[ 'data' ] );
+                } );
+        } );
+    }
+
+    addNewOrder ( sendData : { client : any; adressDostavki : string; ringPhone : string; voditel : any; organization : any; description : string } ) {
+        this.addTableRow ( 'OrderNew', sendData )
+            .then ( data => {
+               let order = JSON.parse(data['_body']);
+               if(order){
+                   if(Object.keys(order).length > 0){
+                       this.router.navigate ( [ this.config.MainPage ] );
+                   }
+               }
+
+            } )
     }
 }

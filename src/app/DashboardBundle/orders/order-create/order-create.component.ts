@@ -72,7 +72,7 @@ export class OrderCreateComponent implements OnInit {
             this.client && this.client.fio &&
             this.adressDostavki && this.adressDostavki.length &&
             this.ringPhone && this.ringPhone.length &&
-            this.voditel && this.voditel.fio &&
+            this.voditel && this.voditel.name &&
             this.organization && this.organization.text &&
             this.description && this.description.length
         ) {
@@ -87,11 +87,26 @@ export class OrderCreateComponent implements OnInit {
             this.client && this.client.fio &&
             this.adressDostavki && this.adressDostavki.length &&
             this.ringPhone && this.ringPhone.length &&
-            this.voditel && this.voditel.fio &&
+            this.voditel && this.voditel.name &&
             this.organization && this.organization.text &&
             this.description && this.description.length) {
 
-            // неделаем ничего
+
+            let organozation_id = +(this.organization.value.split(':::'))[0];
+
+
+            let sendData = {
+                'client': this.client.id,
+                'adressDostavki': this.adressDostavki,
+                'ringPhone': this.ringPhone,
+                'voditel': this.voditel.id,
+                'organization': organozation_id,
+                'description': this.description,
+            };
+
+
+            this.commonService.addNewOrder(sendData);
+
 
         } else {
             return false;
@@ -113,11 +128,6 @@ export class OrderCreateComponent implements OnInit {
 
 
     ngOnInit () {
-
-
-
-
-
 
         this.commonService.getOrganization ()
             .then (

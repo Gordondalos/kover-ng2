@@ -17,12 +17,14 @@ export var CONFIG : any = {
     "ApiFormat" : 'json',
     'GetUserURI' : '/user/login',
     "CookieURI" : '/user',
+    "MainPage": '/main',
     "model": {
         'CustomersPhones': {'url':'/customer/phone/json'},
         'Organization': {'url':'/organization/json'},
         'Customer': {'url':'/customer/customer/json'},
         'Voditel': {'url':'/voditel/json'},
         'DriverNow': {'url':'/voditelnow/new/json'},
-        'VoditelNowByParam': {'url':'/voditelnow/json/byparam'}
+        'VoditelNowByParam': {'url':'/voditelnow/json/byparam'},
+        'OrderNew': {'url':'/orders/json/new '}
     }
 };

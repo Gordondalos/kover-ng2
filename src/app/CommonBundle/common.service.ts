@@ -69,7 +69,9 @@ export class CommonService extends commonModelService {
 
 
     getVoditelNow () {
-        return this.voditelNow;
+
+        return this.jobDriverNow;
+
     }
 
     private organization : any = [];
@@ -207,18 +209,13 @@ export class CommonService extends commonModelService {
         } );
     }
 
-
-
     saveJobNow(data){
        let otvet =  this.addTableRow('DriverNow',data);
     }
 
-
     getClientsPhone () {
-
         let that = this;
         return new Promise ( function ( resolve ) {
-
             that.getAll ( 'CustomersPhones' )
                 .then ( data => {
                     let opt = JSON.parse ( data[ '_body' ] )[ 'data' ];
@@ -376,6 +373,9 @@ export class CommonService extends commonModelService {
         return this.getUserByNameAndPassword ( userLoginAndPassword );
     }
 
+
+    jobDriverNow:any;
+
     getJobNow () {
         return new Promise( resolve => {
             let param: any = [];
@@ -383,6 +383,7 @@ export class CommonService extends commonModelService {
             this.getByParam('VoditelNowByParam',JSON.stringify(param))
                 .then(data => {
                     let dt = JSON.parse(data['_body']);
+                    this.jobDriverNow = dt['data'];
                     resolve(dt['data']);
                 });
         });

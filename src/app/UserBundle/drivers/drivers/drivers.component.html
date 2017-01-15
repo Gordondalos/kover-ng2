@@ -7,13 +7,9 @@
 		<input type="text" class="form-control" placeholder="{{ 'search'|lang }}">
 	</div>
 	<div class="col-xs-3"></div>
-
 	<button class="btn btn-primary float-xs-right">{{ 'add driver'|lang }}</button>
 	<button (click)="sendJobNow()" class="btn btn-primary float-xs-right mx-1">{{ 'job now'|lang }}</button>
-
 	<div class="clearfix mb-1"></div>
-
-
 	<table class="table" *ngIf="driver && driver.length">
 		<thead class="bg-light-green">
 		<tr>
@@ -29,7 +25,9 @@
 		<tr *ngFor="let item of driver">
 			<th scope="row"><i class="mdi f24 mdi-eye pointer"></i></th>
 			<td>
-				<i #elem [ngClass]="{'mdi-checkbox-marked': getDeiverNow(item.id), 'mdi-checkbox-blank-outline': !getDeiverNow(item.id) }" class="mdi " (click)="checkThisDriver(elem, item.id)"></i>
+				<i #elem
+				   [ngClass]="{'mdi-checkbox-marked': getDeiverNow(item.id), 'mdi-checkbox-blank-outline': !getDeiverNow(item.id) }"
+				   class="mdi " (click)="checkThisDriver(elem, item.id)"></i>
 			</td>
 			<td>{{item.name}}</td>
 			<td>{{ item.phone }}</td>

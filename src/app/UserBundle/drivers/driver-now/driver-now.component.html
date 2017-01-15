@@ -1,26 +1,28 @@
-<h6
-	class="firstUp mb-0">{{ 'drivers'|lang }}
-	<i (click)="upOrDown = !upOrDown" [ngClass]="{active: upOrDown }" class="mdi mdi-arrow-up-bold pointer text-muted"></i>
-	<i (click)="upOrDown = !upOrDown"  [ngClass]="{active: !upOrDown }" class="mdi mdi-arrow-down-bold pointer text-muted"></i>
+<div *ngIf="voditelNow && voditelNow.length > 0">
 
-</h6>
+	<h6
+		class="firstUp mb-0">{{ 'drivers'|lang }}
+		<i (click)="upOrDown = !upOrDown" [ngClass]="{active: upOrDown }" class="mdi mdi-arrow-up-bold pointer text-muted"></i>
+		<i (click)="upOrDown = !upOrDown"  [ngClass]="{active: !upOrDown }" class="mdi mdi-arrow-down-bold pointer text-muted"></i>
 
+	</h6>
 
+	<small [ngClass]="{active: 'openZakaz' == sortColumn }"
+	       class="pointer" (click)="openZakaz('openZakaz')">({{ 'orders open'|lang }}
+	</small>:
+	<small [ngClass]="{active: 'closeZakaz' == sortColumn }"
+	       class="pointer" (click)="closeZakaz('closeZakaz')">{{ 'orders close'|lang }})
+	</small>
 
-<small [ngClass]="{active: 'openZakaz' == sortColumn }"
-       class="pointer" (click)="openZakaz('openZakaz')">({{ 'orders open'|lang }}
-</small>:
-<small [ngClass]="{active: 'closeZakaz' == sortColumn }"
-       class="pointer" (click)="closeZakaz('closeZakaz')">{{ 'orders close'|lang }})
-</small>
+	<div class="clearfix mb-1"></div>
 
-<div class="clearfix mb-1"></div>
-
-<ul class="list-unstyled">
-	<li *ngFor="let voditel of voditelNow | driverSort: [upOrDown,sortColumn]">
+	<ul class="list-unstyled">
+		<li *ngFor="let voditel of voditelNow | driverSort: [upOrDown,sortColumn]">
 		<span class="pointer" (click)="setThisVoditelInZakaz(voditel)">
-			{{ voditel.fio }} ({{ voditel.openZakaz }}:{{ voditel.closeZakaz }})
+			{{ voditel.name }} ({{ voditel.openZakaz }}:{{ voditel.closeZakaz }})
 		</span>
 
-	</li>
-</ul>
+		</li>
+	</ul>
+
+</div>

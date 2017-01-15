@@ -66,7 +66,7 @@
 					</span>
 				</div>
 				<div class="clearfix mb-1"></div>
-				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.fio) ? voditel.fio : '' }} </div>
+				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.name) ? voditel.name : '' }} </div>
 				<div class="clearfix mb-1"></div>
 				<button [disabled]="buttonCreateReady()" (click)="addNewOrder()" class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
 				<div class="clearfix"></div>

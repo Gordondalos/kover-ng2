@@ -108,26 +108,23 @@ export class OrderCreateComponent implements OnInit {
                 this.client = client;
                 this.client.fio = client['name']+' '+client['lastname'];
             });
-
-
-
-
-
-
-
         this.commonService.setThisUsers ( this.client );
     }
 
 
     ngOnInit () {
+
+
+
+
+
+
         this.commonService.getOrganization ()
             .then (
                 data => {
                     this.zavedeniya = data;
                 }
             );
-
-
         this.commonService.getClientsPhone ()
             .then (
                 data => {

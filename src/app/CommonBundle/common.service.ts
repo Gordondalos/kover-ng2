@@ -244,7 +244,7 @@ export class CommonService extends commonModelService {
      * Конфигурационные парамеры - обьект
      */
     public config : any = CONFIG;
-    private router : any;
+    public router : any;
 
     /**
      * Конструктор сервиса устанавливает из конфига язык взаимодействия с пользователем,

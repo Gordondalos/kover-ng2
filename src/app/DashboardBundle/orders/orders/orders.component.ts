@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from "../../order.service";
-declare var $:any;
+declare let $:any;
 
 @Component({
   selector: 'orders',

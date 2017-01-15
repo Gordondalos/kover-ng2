@@ -8,8 +8,10 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 export class commonModelService {
 
     config = CONFIG;
-
-    constructor (private http: Http) { }
+    public http: Http;
+    constructor (http: Http) {
+        this.http = http;
+    }
 
     getAll(model){
 

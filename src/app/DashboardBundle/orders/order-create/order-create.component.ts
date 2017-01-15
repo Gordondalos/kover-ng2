@@ -102,6 +102,11 @@ export class OrderCreateComponent implements OnInit {
                 'voditel': this.voditel.id,
                 'organization': organozation_id,
                 'description': this.description,
+                'oplata_voditel': this.oplata_voditel,
+                'oplata_operator': this.oplata_operator,
+                'summa_zakaza': this.summa_zakaza,
+                'summa_dostavki': this.summa_dostavki,
+                'summa_voznagrajdenia': this.summa_voznagrajdenia,
             };
 
 
@@ -114,7 +119,14 @@ export class OrderCreateComponent implements OnInit {
     }
 
 
-    // событие выбора клиента, возвращает обьект в котором есть айдишник клиента и его телефон
+    oplata_voditel: string;
+    oplata_operator: string;
+    summa_zakaza: string;
+    summa_dostavki: string;
+    summa_voznagrajdenia: string;
+
+
+     // событие выбора клиента, возвращает обьект в котором есть айдишник клиента и его телефон
     selectData ( event : any ) {
         this.ringPhone = event[ 0 ].text;
 
@@ -126,8 +138,11 @@ export class OrderCreateComponent implements OnInit {
         this.commonService.setThisUsers ( this.client );
     }
 
+    config: any;
 
     ngOnInit () {
+
+        this.config = this.commonService.getConfig();
 
         this.commonService.getOrganization ()
             .then (

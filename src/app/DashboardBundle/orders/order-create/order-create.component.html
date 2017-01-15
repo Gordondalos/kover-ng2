@@ -67,9 +67,31 @@
 				</div>
 				<div class="clearfix mb-1"></div>
 				<div>{{ 'driver' | lang }}: {{ (voditel && voditel.name) ? voditel.name : '' }} </div>
+
 				<div class="clearfix mb-1"></div>
 				<button [disabled]="buttonCreateReady()" (click)="addNewOrder()" class="btn btn-success float-xs-right">{{ 'create'|lang }}</button>
-				<div class="clearfix"></div>
+				<div class="clearfix mb-1"></div>
+
+				<span>Оплата Водителю</span>
+				<input class="form-control mb-1" type="text" [(ngModel)]="oplata_voditel">
+				<span>Оплата оператору</span>
+				<input class="form-control mb-1" type="text" [(ngModel)]="oplata_operator">
+				<span>сумма Заказа</span>
+				<input class="form-control mb-1" type="text" [(ngModel)]="summa_zakaza">
+				<span>сумма доставки</span>
+				<input class="form-control mb-1" type="text" [(ngModel)]="summa_dostavki">
+				<span>сумма вознаграждения</span>
+				<input class="form-control mb-1" type="text" [(ngModel)]="summa_voznagrajdenia">
+
+
+
+
+
+
+
+
+
+
 			</div>
 		</div>
 

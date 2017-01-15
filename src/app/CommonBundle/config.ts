@@ -25,6 +25,7 @@ export var CONFIG : any = {
         'Voditel': {'url':'/voditel/json'},
         'DriverNow': {'url':'/voditelnow/new/json'},
         'VoditelNowByParam': {'url':'/voditelnow/json/byparam'},
-        'OrderNew': {'url':'/orders/json/new '}
+        'OrderNew': {'url':'/orders/json/new '},
+        'OrdersActive': {'url':'/orders/active '}
     }
 };

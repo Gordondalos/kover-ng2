@@ -74,5 +74,7 @@ export var EN: any = {
     'or': 'or',
     'Request access': 'Request access',
     'Password': 'Password',
+    'job now': 'job now',
+    'now': 'now',
 
 };

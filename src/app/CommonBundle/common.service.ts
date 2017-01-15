@@ -16,7 +16,7 @@ declare var $ : any;
  *
  */
 @Injectable ()
-export class CommonService extends  commonModelService{
+export class CommonService extends commonModelService {
 
 
     // событие установки нового Водителя в заказе
@@ -72,29 +72,31 @@ export class CommonService extends  commonModelService{
         return this.voditelNow;
     }
 
-    private organization :any = [ ];
+    private organization : any = [];
 
 
-
-    getOrganization(){
+    getOrganization () {
 
         let that = this;
-        return new Promise(function(resolve) {
+        return new Promise ( function ( resolve ) {
 
-            that.getAll('Organization')
-                .then( data => {
-                    let opt = JSON.parse(data['_body'])['data'];
-                    let newOpt: any = [];
-                    opt.forEach(function ( item ) {
-                        newOpt.push({'text': item['name'], 'value': item['adress']+', '+item['phone'] });
-                    });
+            that.getAll ( 'Organization' )
+                .then ( data => {
+                    let opt = JSON.parse ( data[ '_body' ] )[ 'data' ];
+                    let newOpt : any = [];
+                    opt.forEach ( function ( item ) {
+                        newOpt.push ( {
+                            'text' : item[ 'name' ],
+                            'value' : item[ 'adress' ] + ', ' + item[ 'phone' ]
+                        } );
+                    } );
                     that.organization = newOpt;
-                    if(that.organization.length){
-                        resolve(that.organization);
+                    if ( that.organization.length ) {
+                        resolve ( that.organization );
                     }
-                });
+                } );
 
-        });
+        } );
 
 
     }
@@ -156,20 +158,19 @@ export class CommonService extends  commonModelService{
     getClientById ( id : string ) {
 
         let that = this;
-        return new Promise(function(resolve) {
-            that.getById('Customer', id)
-                .then( data => {
-                    let opt = JSON.parse(data['_body'])['data'];
-                    resolve(opt);
+        return new Promise ( function ( resolve ) {
+            that.getById ( 'Customer', id )
+                .then ( data => {
+                    let opt = JSON.parse ( data[ '_body' ] )[ 'data' ];
+                    resolve ( opt );
                     // let client = {
                     //     'id' : '1',
                     //     'fio' : 'Кузнецов Вадим',
                     //     'phones' : [ '055577799932', '02154546565' ],
                     //     'adreses' : [ 'Бишкек ул Красивая 5', 'Улица зеленая 3 кв 5' ]
                     // };
-                });
-        });
-
+                } );
+        } );
 
 
     }
@@ -188,25 +189,50 @@ export class CommonService extends  commonModelService{
         console.log ( fio, phone, adress );
     }
 
+    public driver : any = [];
+
+    getAllVoditel () {
+        let that = this;
+        return new Promise ( function ( resolve ) {
+
+            that.getAll ( 'Voditel' )
+                .then ( data => {
+                    let opt = JSON.parse ( data[ '_body' ] )[ 'data' ];
+                    that.driver = opt;
+                    if ( that.driver.length ) {
+                        resolve ( that.driver );
+                    }
+                } );
+
+        } );
+    }
+
+
+
+    saveJobNow(data){
+       let otvet =  this.addTableRow('DriverNow',data);
+    }
+
+
     getClientsPhone () {
 
         let that = this;
-        return new Promise(function(resolve) {
+        return new Promise ( function ( resolve ) {
 
-            that.getAll('CustomersPhones')
-                .then( data => {
-                    let opt = JSON.parse(data['_body'])['data'];
-                    let newOpt: any = [];
-                    opt.forEach(function ( item ) {
-                        newOpt.push({'text': item['phone'], 'value': item['customer']});
-                    });
+            that.getAll ( 'CustomersPhones' )
+                .then ( data => {
+                    let opt = JSON.parse ( data[ '_body' ] )[ 'data' ];
+                    let newOpt : any = [];
+                    opt.forEach ( function ( item ) {
+                        newOpt.push ( { 'text' : item[ 'phone' ], 'value' : item[ 'customer' ] } );
+                    } );
                     that.options = newOpt;
-                    if(that.options.length){
-                        resolve(that.options);
+                    if ( that.options.length ) {
+                        resolve ( that.options );
                     }
-                });
+                } );
 
-        });
+        } );
 
     }
 
@@ -229,7 +255,7 @@ export class CommonService extends  commonModelService{
      * @memberOf CommonService
      */
     constructor ( http : Http, router : Router ) {
-        super(http);
+        super ( http );
         this.router = router;
         // $('body').css({'min-height': window.innerHeight+"px" });
         // $('.login').css({'height': window.innerHeight+"px" });
@@ -346,7 +372,19 @@ export class CommonService extends  commonModelService{
 
     }
 
-    getUser (userLoginAndPassword) {
-        return this.getUserByNameAndPassword(userLoginAndPassword);
+    getUser ( userLoginAndPassword ) {
+        return this.getUserByNameAndPassword ( userLoginAndPassword );
+    }
+
+    getJobNow () {
+        return new Promise( resolve => {
+            let param: any = [];
+            param.push(new Date());
+            this.getByParam('VoditelNowByParam',JSON.stringify(param))
+                .then(data => {
+                    let dt = JSON.parse(data['_body']);
+                    resolve(dt['data']);
+                });
+        });
     }
 }

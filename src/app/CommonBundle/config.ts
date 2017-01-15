@@ -20,6 +20,9 @@ export var CONFIG : any = {
     "model": {
         'CustomersPhones': {'url':'/customer/phone/json'},
         'Organization': {'url':'/organization/json'},
-        'Customer': {'url':'/customer/customer/json'}
+        'Customer': {'url':'/customer/customer/json'},
+        'Voditel': {'url':'/voditel/json'},
+        'DriverNow': {'url':'/voditelnow/new/json'},
+        'VoditelNowByParam': {'url':'/voditelnow/json/byparam'}
     }
 };

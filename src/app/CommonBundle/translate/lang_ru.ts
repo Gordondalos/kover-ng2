@@ -80,5 +80,7 @@ export var RU: any = {
     'or': 'или',
     'Request access': 'Запросить доступ',
     'Password': 'Пароль',
+    'job now': 'Работают сегодня',
+    'now': 'Сегодня',
 
 };

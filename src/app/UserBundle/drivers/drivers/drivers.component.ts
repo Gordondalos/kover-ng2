@@ -66,12 +66,13 @@ export class DriversComponent implements OnInit {
 
         this.getJobNow ()
             .then ( data => {
-                this.driverNowFull = data;
-                this.driverNowFull.forEach ( item => {
-                    this.driverNowid.push(item.id);
-                } )
-
-
+                if(data){
+                    console.log(data);
+                    this.driverNowFull = data;
+                    this.driverNowFull.forEach ( item => {
+                        this.driverNowid.push ( item.id );
+                    } )
+                }
             } );
         this.commonService.getAllVoditel ()
             .then ( data => {

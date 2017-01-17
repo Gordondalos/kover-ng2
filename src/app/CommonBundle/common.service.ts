@@ -212,6 +212,7 @@ export class CommonService extends commonModelService {
 
     saveJobNow ( data ) {
         let otvet = this.addTableRow ( 'DriverNow', data );
+
     }
 
     getClientsPhone () {
@@ -385,6 +386,7 @@ export class CommonService extends commonModelService {
                 .then ( data => {
                     let dt = JSON.parse ( data[ '_body' ] );
                     this.jobDriverNow = dt[ 'data' ];
+                    console.log(dt);
                     resolve ( dt[ 'data' ] );
                 } );
         } );

@@ -82,5 +82,6 @@ export var RU: any = {
     'Password': 'Пароль',
     'job now': 'Работают сегодня',
     'now': 'Сегодня',
+    'edit': 'Правка',
 
 };

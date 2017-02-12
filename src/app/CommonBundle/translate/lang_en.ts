@@ -76,5 +76,6 @@ export var EN: any = {
     'Password': 'Password',
     'job now': 'job now',
     'now': 'now',
+    'edit': 'Edit',
 
 };

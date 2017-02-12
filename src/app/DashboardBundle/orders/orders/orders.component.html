@@ -7,7 +7,7 @@
 
 				<div class="card-header posr">
 					<i (click)="hideElem(elemcard)" class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
-					{{ order.adress }}
+					{{ order.adressDostavki }}
 
 				</div>
 				<div class="card-block">
@@ -38,7 +38,7 @@
 
 						</div>
 						<div class="col-xs-12">
-							<a href="#" class="btn btn-success d-block">Правка</a>
+							<a href="#" class="btn btn-success d-block">{{ 'edit'|lang }}</a>
 						</div>
 					</div>
 				</div>

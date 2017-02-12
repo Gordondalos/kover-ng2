@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from "../../../CommonBundle/common.service";
 
-import * as _ from "lodash";
+declare let $: any;
 
 
 @Component ( {

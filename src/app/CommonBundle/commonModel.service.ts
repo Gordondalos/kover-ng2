@@ -35,8 +35,8 @@ export class commonModelService {
             'URI' : this.config.model[model].url,
         } );
         let Url = this.config.ApiURL+this.config.model[model].url+"/"+id;
-        let options = new RequestOptions ( { headers : headers } );
-        let body = [];
+        let options = new RequestOptions ( { headers : headers} );
+        let body = [{'id': id }];
         return this.http.post( Url, body, options)
             .toPromise ()
 

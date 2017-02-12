@@ -315,16 +315,23 @@ export class OrderService extends CommonService {
         return this.orderStatus;
     }
 
-    getOrders () {
+    getOrders ():any {
 
-         this.getByParam ( 'OrdersActive', { 'status' : '1' } )
-            .then ( data => {
-                let qwe = JSON.parse(data['_body']);
-                console.log ( qwe );
+        return new Promise( resolve => {
+            this.getByParam ( 'OrdersActive', { 'status' : '1' } )
+                .then ( data => {
+                    this.orders =  JSON.parse(data['_body']);
+                    if(Object.keys(this.orders).length > 0){
+                        resolve(this.orders );
+                    }
+                } );
 
-            } );
+        });
 
-        return this.orders;
+
+
+
+
     }
 
     addThisOrder ( order : any ) {

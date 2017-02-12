@@ -1,50 +1,53 @@
+<div *ngIf="orders.length > 0">
 
-<div *ngFor="let order of orders; let i = index">
-	<div class="clearfix" *ngIf="i%4==0 && i!=0"></div>
-	<div #elemcard class="col-xs-3 px-05">
-		<div class="card">
+	<div *ngFor="let order of orders; let i = index">
+		<div class="clearfix" *ngIf="i%4==0 && i!=0"></div>
+		<div #elemcard class="col-xs-3 px-05">
+			<div class="card">
 
-			<div class="card-header posr">
-				<i (click)="hideElem(elemcard)" class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
-				{{ order.adress }}
+				<div class="card-header posr">
+					<i (click)="hideElem(elemcard)" class="text-danger mdi mdi-close-box float-xs-right pointer"></i>
+					{{ order.adress }}
 
-			</div>
-			<div class="card-block">
-				<p class="card-text">
-					{{ order.description }}
-				</p>
-
-				<div class="row ">
-					<p class="d-block bg-faded px-1 br">
-						Курьер: <span>{{ order.driver.fio }}</span>
-						<small>{{ order.driver.phone }}</small>
-					</p>
 				</div>
-				<div class="row ">
-					<p class="d-block bg-info text-white px-1 br">
-						Доставка из: <span>{{ order.organization.title }}</span>
-						<small>{{ order.organization.adress}}</small>
+				<div class="card-block">
+					<p class="card-text">
+						{{ order.description }}
 					</p>
-				</div>
 
-				<div class="row">
-					<div class="col-xs-12">
-
-						<ng-select2 (selected)="selectStatus($event)"
-						            [data]="{'options': orderStatus, 'placeholder': 'placeholder', 'select':{'text':order.status.text,'value':order.status.value}}">
-						</ng-select2>
-
-
+					<div class="row">
+						<p class="d-block bg-faded px-1 br" *ngIf="order.driver && order.driver.fio">
+							Курьер: <span>{{ order.driver.fio }}</span>
+							<small>{{ order.driver.phone }}</small>
+						</p>
 					</div>
-					<div class="col-xs-12">
-						<a href="#" class="btn btn-success d-block">Правка</a>
+					<div class="row ">
+						<p class="d-block bg-info text-white px-1 br">
+							Доставка из: <span>{{ order.organization.title }}</span>
+							<small>{{ order.organization.adress}}</small>
+						</p>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+
+							<ng-select2 (selected)="selectStatus($event)"
+							            [data]="{'options': orderStatus, 'placeholder': 'placeholder', 'select':{'text':order.status.text,'value':order.status.value}}">
+							</ng-select2>
+
+
+						</div>
+						<div class="col-xs-12">
+							<a href="#" class="btn btn-success d-block">Правка</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
+	</div>
 </div>
+
 
 
 

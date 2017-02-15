@@ -187,6 +187,14 @@ export class CommonService extends commonModelService {
             'adreses' : [ adress ]
         };
 
+        // работаю тут
+        this.addTableRow ( 'CustomerCreate', client )
+            .then ( data => {
+                let res = JSON.parse(data['_body']);
+                debugger
+            } );
+
+
         this.thisUserChanges ( client );
 
         console.log ( fio, phone, adress );
@@ -386,7 +394,7 @@ export class CommonService extends commonModelService {
                 .then ( data => {
                     let dt = JSON.parse ( data[ '_body' ] );
                     this.jobDriverNow = dt[ 'data' ];
-                    console.log(dt);
+                    console.log ( dt );
                     resolve ( dt[ 'data' ] );
                 } );
         } );
@@ -395,12 +403,12 @@ export class CommonService extends commonModelService {
     addNewOrder ( sendData : { client : any; adressDostavki : string; ringPhone : string; voditel : any; organization : any; description : string } ) {
         this.addTableRow ( 'OrderNew', sendData )
             .then ( data => {
-               let order = JSON.parse(data['_body']);
-               if(order){
-                   if(Object.keys(order).length > 0){
-                       this.router.navigate ( [ this.config.MainPage ] );
-                   }
-               }
+                let order = JSON.parse ( data[ '_body' ] );
+                if ( order ) {
+                    if ( Object.keys ( order ).length > 0 ) {
+                        this.router.navigate ( [ this.config.MainPage ] );
+                    }
+                }
 
             } )
     }

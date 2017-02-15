@@ -56,7 +56,7 @@ export class OrdersComponent implements OnInit {
                             order[ 'driver' ].fio = voditelInfo.name;
                             order[ 'driver' ].phone = voditelInfo.phone;
                             order[ 'driver' ].car = voditelInfo.car;
-                            order[ 'id' ].car = voditelInfo.id;
+                            order[ 'driver' ].id = voditel;
                         } );
 
                     // подтянем данные откуда заказали
@@ -71,11 +71,8 @@ export class OrdersComponent implements OnInit {
                             order.organization.id = organizationInfo.id;
                         } );
 
-
-                    console.log ( order );
-
                 } );
-                console.log ( data );
+
                 this.orders = data;
             } );
 

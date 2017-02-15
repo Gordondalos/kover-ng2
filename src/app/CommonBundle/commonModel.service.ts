@@ -50,9 +50,7 @@ export class commonModelService {
 
     }
 
-    create(){
 
-    }
 
     addTableRow(model,data){
         let headers = new Headers ( {

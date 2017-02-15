@@ -22,6 +22,7 @@ export var CONFIG : any = {
         'CustomersPhones': {'url':'/customer/phone/json'},
         'Organization': {'url':'/organization/json'},
         'Customer': {'url':'/customer/customer/json'},
+        'CustomerCreate': {'url':'/customer/customer/new/json'},
         'Voditel': {'url':'/voditel/json'},
         'DriverNow': {'url':'/voditelnow/new/json'},
 
